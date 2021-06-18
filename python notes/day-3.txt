@@ -1,0 +1,323 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 29>>3
+3
+>>> 29<<3
+232
+>>> #print is a function in python 3
+>>> print 'amit'
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print('amit')?
+>>> 
+>>> 
+>>> print('hello')
+hello
+>>> print('hello','welcome','to','python')
+hello welcome to python
+>>> print('hello','welcome','to','python',sep='      ')
+hello      welcome      to      python
+>>> print('hello','welcome','to','python',sep='+++SSFD++++')
+hello+++SSFD++++welcome+++SSFD++++to+++SSFD++++python
+>>> a=12
+>>> b='hello'
+>>> c=7567.878
+>>> print(a,b,c)
+12 hello 7567.878
+>>> a.__str__()
+'12'
+>>> b.__str__()
+'hello'
+>>> c.__str__()
+'7567.878'
+>>> print('%d %s %f'%(a,b,c))
+12 hello 7567.878000
+>>> 
+>>> #console input
+>>> input("enter a number")
+enter a number123
+'123'
+>>> int(input("enter a number"))
+enter a number12
+12
+>>> float(input("enter a number"))
+enter a number123
+123.0
+>>> bool(
+	)
+False
+>>> bool(input("enter a number"))
+enter a number
+False
+>>> bool(input("enter a number"))
+enter a number     
+True
+>>> complex(input("enter a number"))
+enter a number2+3j
+(2+3j)
+>>> bin(int(input("enter a number")))
+enter a number123
+'0b1111011'
+>>> hex(int(input("enter a number")))
+enter a number1234
+'0x4d2'
+>>> oct(int(input("enter a number")))
+enter a number1234
+'0o2322'
+>>> chr(int(input("enter a number")))
+enter a number65
+'A'
+>>> ord(input("enter a number"))
+enter a numbera
+97
+>>> eval(input("enter a number"))
+enter a number1+2*3+4
+11
+>>> a='print("hello")'
+>>> a
+'print("hello")'
+>>> print(a)
+print("hello")
+>>> eval(a)
+hello
+>>> a='input()'
+>>> eval(a)
+654354
+'654354'
+>>> 
+>>> 
+>>> #cond stmnts
+>>> if 1==2:
+	print("true")
+	print("welcome")
+       else:
+	       
+SyntaxError: unindent does not match any outer indentation level
+>>> if 1==2:
+	print("true")
+	print("welcome")
+else:
+	print("false")
+	print("bye")
+
+	
+false
+bye
+>>> if 1==2:
+	print("true")
+	print("welcome")
+
+	
+>>> if 1!=2:
+	print("true")
+	print("welcome")
+
+	
+true
+welcome
+>>> a=input("enter a b or c")
+enter a b or ca
+>>> if a in 'aA':
+	print("option a selected")
+else:
+	if a in 'bB':
+		print("option b selected")
+	else:
+		if a in 'cC':
+			print("option c selecetd")
+		else:
+			print("error")
+
+			
+option a selected
+>>> a=input("enter a b or c")
+enter a b or ce
+>>> if a in 'aA':
+	print("option a selected")
+else:
+	if a in 'bB':
+		print("option b selected")
+	else:
+		if a in 'cC':
+			print("option c selecetd")
+		else:
+			print("error")
+
+			
+error
+>>> if a in 'aA':
+	print("option a selected")
+elif a in 'bB':
+	print("option b selected")
+elif a in 'cC':
+			print("option c selecetd")
+else:
+			print("error")
+
+			
+error
+>>> if 1==1:
+	print("hello")
+if 2==2:
+	
+SyntaxError: invalid syntax
+>>> 
+>>> #cond loops
+>>> 
+>>> for i in 'abcde':
+	print('hello',i)
+
+	
+hello a
+hello b
+hello c
+hello d
+hello e
+>>> i
+'e'
+>>> for i in 'abcde':
+	print('hello',i,end='  ')
+
+	
+hello a  hello b  hello c  hello d  hello e  
+>>> #genrator's function is range
+>>> 
+>>> #range(start=0,stop,interval=+1)
+>>> #if incemental order then less than stop or greater than stop
+>>> 
+>>> range(5)
+range(0, 5)
+>>> list(range(5))
+[0, 1, 2, 3, 4]
+>>> list(range(1,5))
+[1, 2, 3, 4]
+>>> list(range(1,6))
+[1, 2, 3, 4, 5]
+>>> list(range(1,6,2))
+[1, 3, 5]
+>>> list(range(1,6,3))
+[1, 4]
+>>> list(range(1,6,0.3))
+Traceback (most recent call last):
+  File "<pyshell#96>", line 1, in <module>
+    list(range(1,6,0.3))
+TypeError: 'float' object cannot be interpreted as an integer
+>>> 
+>>> list(range(5,1))
+[]
+>>> list(range(5,1,-1))
+[5, 4, 3, 2]
+>>> list(range(5,0,-1))
+[5, 4, 3, 2, 1]
+>>> list(range(5,0,-2))
+[5, 3, 1]
+>>> 
+>>> 
+>>> for i in range(5):
+	print(i,end=' ')
+
+	
+0 1 2 3 4 
+>>> i
+4
+>>> for i in range(5):
+	print("hello",end=' ')
+
+	
+hello hello hello hello hello 
+>>> for i in range(5):
+	for j in range(3):
+		print("hello",end=' ')
+
+		
+hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello 
+>>> 
+>>> for i in range(5):
+	for j in range(i):
+		print("hello",end=' ')
+
+		
+hello hello hello hello hello hello hello hello hello hello 
+>>> 'hello hello hello hello hello hello hello hello hello hello'.count('hello')
+10
+>>> for i in range(1,5):
+	print(i,end=' ')
+	i=115
+
+	
+1 2 3 4 
+>>> for i in range(1,6):
+	print(i,end=' ')
+for i in range(5,0,-1):
+	
+SyntaxError: invalid syntax
+>>> for i in range(1,6):
+	print(i,end=' ')
+else:
+	for i in range(5,0,-1):
+		print(i,end=' ')
+
+		
+1 2 3 4 5 5 4 3 2 1 
+>>> for i in range(1,1000000):
+	if i==2:
+		continue
+	if i==3:
+		pass
+	if i==4:
+		break
+	print(i)
+
+	
+1
+3
+>>> for i in range(1,5):
+	continue
+	print(i,end=' ')
+
+	
+>>> i
+4
+>>> for i in range(1,5):
+	break
+	print(i,end=' ')
+
+	
+>>> i
+1
+>>> for i in range(1,5):
+	pass
+	print(i,end=' ')
+
+	
+1 2 3 4 
+>>> i=0
+>>> while i<5:
+	print(i,end=' ')
+	i+=1
+
+	
+0 1 2 3 4 
+>>> i
+5
+>>> for i in range(1,6):
+	for j in range(1,i+1):
+		print('*',end='')
+	print()
+
+	
+*
+**
+***
+****
+*****
+>>> 'python '*5
+'python python python python python '
+>>> for i in range(1,6):
+	print('*'*i)
+
+	
+*
+**
+***
+****
+*****
+>>> 

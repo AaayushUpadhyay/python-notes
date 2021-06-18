@@ -1,0 +1,342 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> a=153
+>>> n=a
+>>> s=0
+>>> while(n>0):
+	s+=(n%10)**len(str(a))
+	n//=10
+
+	
+>>> s
+153
+>>> a==s
+True
+>>> for i in str(a):
+	print(i)
+
+	
+1
+5
+3
+>>> for i in str(a):
+	print(int(i)**len(str(a)))
+
+	
+1
+125
+27
+>>> [int(i)**len(str(a)) for i in str(a)]
+[1, 125, 27]
+>>> sum([int(i)**len(str(a)) for i in str(a)])
+153
+>>> a==sum([int(i)**len(str(a)) for i in str(a)])
+True
+>>> [a for a in range(1,int(input("enter a number"))) if a==sum([int(i)**len(str(a)) for i in str(a)])]
+enter a number500
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407]
+>>> [a for a in range(1,int(input("enter a number"))) if a==sum([int(i)**len(str(a)) for i in str(a)])]
+enter a number100000
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407, 1634, 8208, 9474, 54748, 92727, 93084]
+>>> 
+>>> 
+>>> print(1,"x",2,"=",1*2)
+1 x 2 = 2
+>>> print('%dx%d=%d'%(1,2,1*2))
+1x2=2
+>>> ['%dx%d=%d'%(i,j,i*j) for i in range(1,int(input())+1) for j in range(1,11)]
+5
+['1x1=1', '1x2=2', '1x3=3', '1x4=4', '1x5=5', '1x6=6', '1x7=7', '1x8=8', '1x9=9', '1x10=10', '2x1=2', '2x2=4', '2x3=6', '2x4=8', '2x5=10', '2x6=12', '2x7=14', '2x8=16', '2x9=18', '2x10=20', '3x1=3', '3x2=6', '3x3=9', '3x4=12', '3x5=15', '3x6=18', '3x7=21', '3x8=24', '3x9=27', '3x10=30', '4x1=4', '4x2=8', '4x3=12', '4x4=16', '4x5=20', '4x6=24', '4x7=28', '4x8=32', '4x9=36', '4x10=40', '5x1=5', '5x2=10', '5x3=15', '5x4=20', '5x5=25', '5x6=30', '5x7=35', '5x8=40', '5x9=45', '5x10=50']
+>>> print(['%dx%d=%d'%(i,j,i*j) for i in range(1,int(input())+1) for j in range(1,11)])
+5
+['1x1=1', '1x2=2', '1x3=3', '1x4=4', '1x5=5', '1x6=6', '1x7=7', '1x8=8', '1x9=9', '1x10=10', '2x1=2', '2x2=4', '2x3=6', '2x4=8', '2x5=10', '2x6=12', '2x7=14', '2x8=16', '2x9=18', '2x10=20', '3x1=3', '3x2=6', '3x3=9', '3x4=12', '3x5=15', '3x6=18', '3x7=21', '3x8=24', '3x9=27', '3x10=30', '4x1=4', '4x2=8', '4x3=12', '4x4=16', '4x5=20', '4x6=24', '4x7=28', '4x8=32', '4x9=36', '4x10=40', '5x1=5', '5x2=10', '5x3=15', '5x4=20', '5x5=25', '5x6=30', '5x7=35', '5x8=40', '5x9=45', '5x10=50']
+>>> print(['%dx%d=%d'%(i,j,i*j) for i in range(1,int(input())+1) for j in range(1,11)],end='\n')
+5
+['1x1=1', '1x2=2', '1x3=3', '1x4=4', '1x5=5', '1x6=6', '1x7=7', '1x8=8', '1x9=9', '1x10=10', '2x1=2', '2x2=4', '2x3=6', '2x4=8', '2x5=10', '2x6=12', '2x7=14', '2x8=16', '2x9=18', '2x10=20', '3x1=3', '3x2=6', '3x3=9', '3x4=12', '3x5=15', '3x6=18', '3x7=21', '3x8=24', '3x9=27', '3x10=30', '4x1=4', '4x2=8', '4x3=12', '4x4=16', '4x5=20', '4x6=24', '4x7=28', '4x8=32', '4x9=36', '4x10=40', '5x1=5', '5x2=10', '5x3=15', '5x4=20', '5x5=25', '5x6=30', '5x7=35', '5x8=40', '5x9=45', '5x10=50']
+>>> a
+153
+>>> m=['%dx%d=%d'%(i,j,i*j) for i in range(1,int(input())+1) for j in range(1,11)]
+5
+>>> m.__str__()
+"['1x1=1', '1x2=2', '1x3=3', '1x4=4', '1x5=5', '1x6=6', '1x7=7', '1x8=8', '1x9=9', '1x10=10', '2x1=2', '2x2=4', '2x3=6', '2x4=8', '2x5=10', '2x6=12', '2x7=14', '2x8=16', '2x9=18', '2x10=20', '3x1=3', '3x2=6', '3x3=9', '3x4=12', '3x5=15', '3x6=18', '3x7=21', '3x8=24', '3x9=27', '3x10=30', '4x1=4', '4x2=8', '4x3=12', '4x4=16', '4x5=20', '4x6=24', '4x7=28', '4x8=32', '4x9=36', '4x10=40', '5x1=5', '5x2=10', '5x3=15', '5x4=20', '5x5=25', '5x6=30', '5x7=35', '5x8=40', '5x9=45', '5x10=50']"
+>>> 
+>>> a=[12,34]
+>>> x,y=a
+>>> x
+12
+>>> y
+34
+>>> x,y=12,34,56,78,90
+Traceback (most recent call last):
+  File "<pyshell#35>", line 1, in <module>
+    x,y=12,34,56,78,90
+ValueError: too many values to unpack (expected 2)
+>>> x,*y=12,34,56,78,90
+>>> x
+12
+>>> y
+[34, 56, 78, 90]
+>>> y
+[34, 56, 78, 90]
+>>> print(y)
+[34, 56, 78, 90]
+>>> print(*y)
+34 56 78 90
+>>> print(*y,sep='\n')
+34
+56
+78
+90
+>>> print(*['%dx%d=%d'%(i,j,i*j) for i in range(1,int(input())+1) for j in range(1,11)],sep='\n')
+5
+
+>>> d=[[12,34,56],[55,33,23],[67,89,90]]
+>>> len(d)
+3
+>>> d[0][0]
+12
+>>> d[1][0]
+55
+>>> d[:][0]
+[12, 34, 56]
+>>> d[0]
+[12, 34, 56]
+>>> [12, 34, 56][0]
+12
+>>> d=[[12,34,56],[55,33,23],[67,89,90],'hello']
+>>> d[-1].upper()
+'HELLO'
+>>> 
+>>> 
+>>> 12,34
+(12, 34)
+>>> 
+>>> 
+>>> #tuple
+>>> 
+>>> a=(12)
+>>> type(a)
+<class 'int'>
+>>> a=(12,)
+>>> type(a)
+<class 'tuple'>
+>>> b=[12]
+>>> type(b)
+<class 'list'>
+>>> 
+>>> 
+>>> a=(12,'start','hello',45,67,'bye','end')
+>>> 
+>>> a[0]
+12
+>>> a[-1]
+'end'
+>>> a[-3]
+67
+>>> a[-7]
+12
+>>> a[-900]
+Traceback (most recent call last):
+  File "<pyshell#75>", line 1, in <module>
+    a[-900]
+IndexError: tuple index out of range
+>>> a[7]
+Traceback (most recent call last):
+  File "<pyshell#76>", line 1, in <module>
+    a[7]
+IndexError: tuple index out of range
+>>> 
+>>> 
+>>> 
+>>> a[:]
+(12, 'start', 'hello', 45, 67, 'bye', 'end')
+>>> a[:900]
+(12, 'start', 'hello', 45, 67, 'bye', 'end')
+>>> a[9:]
+()
+>>> a[2::3]
+('hello', 'bye')
+>>> a[-7::2]
+(12, 'hello', 67, 'end')
+>>> 
+>>> a[-5:5]
+('hello', 45, 67)
+>>> 
+>>> 
+>>> a[::-1]
+('end', 'bye', 67, 45, 'hello', 'start', 12)
+>>> a[-1:]
+('end',)
+>>> 
+>>> 
+>>> a[-1::-1]
+('end', 'bye', 67, 45, 'hello', 'start', 12)
+>>> a[987:0:-1]
+('end', 'bye', 67, 45, 'hello', 'start')
+>>> a[987::-1]
+('end', 'bye', 67, 45, 'hello', 'start', 12)
+>>> 
+>>> a[-3:3:-1]
+(67,)
+>>> a[3:-3]
+(45,)
+>>> a[5:-5:-1]
+('bye', 67, 45)
+>>> a[5:-5]
+()
+>>> a[0:-1]
+(12, 'start', 'hello', 45, 67, 'bye')
+>>> a[-900:0:-1]
+()
+>>> a[0]
+12
+>>> a[0]=123
+Traceback (most recent call last):
+  File "<pyshell#104>", line 1, in <module>
+    a[0]=123
+TypeError: 'tuple' object does not support item assignment
+>>> del(a[0])
+Traceback (most recent call last):
+  File "<pyshell#105>", line 1, in <module>
+    del(a[0])
+TypeError: 'tuple' object doesn't support item deletion
+>>> len(a)
+7
+>>> a.__len__()
+7
+>>> max(a)
+Traceback (most recent call last):
+  File "<pyshell#108>", line 1, in <module>
+    max(a)
+TypeError: '>' not supported between instances of 'str' and 'int'
+>>> a=[True,-123,0.67,-78,-0.7]
+>>> max(a)
+True
+>>> min(a)
+-123
+>>> sum(a)
+-200.02999999999997
+>>> a=(True,-123,0.67,-78,-0.7)
+>>> max(a)
+True
+>>> min(a)
+-123
+>>> sum(a)
+-200.02999999999997
+>>> sorted(a)
+[-123, -78, -0.7, 0.67, True]
+>>> a=('hello',34,56,'hello',5,7,8,3,'hello')
+>>> 
+>>> #methods of tuple
+>>> b=a
+>>> 
+>>> a.count('hello')
+3
+>>> a.index('hello')
+0
+>>> a.index('hello',1)
+3
+>>> a.index('hello',4)
+8
+>>> (i for i in range(1,5))
+<generator object <genexpr> at 0x02B4F4B0>
+>>> 
+>>> 
+>>> x=(i for i in range(1,5))
+>>> next(x)
+1
+>>> next(x)
+2
+>>> next(x)
+3
+>>> next(x)
+4
+>>> next(x)
+Traceback (most recent call last):
+  File "<pyshell#135>", line 1, in <module>
+    next(x)
+StopIteration
+>>> 
+>>> 
+>>> a
+('hello', 34, 56, 'hello', 5, 7, 8, 3, 'hello')
+>>> print(*a)
+hello 34 56 hello 5 7 8 3 hello
+>>> x,*d=a
+>>> x
+'hello'
+>>> d
+[34, 56, 'hello', 5, 7, 8, 3, 'hello']
+>>> x,d=a[0],a[1:]
+>>> x
+'hello'
+>>> d
+(34, 56, 'hello', 5, 7, 8, 3, 'hello')
+>>> 
+>>> 
+>>> #dict
+>>> 
+>>> d={}
+>>> type(d)
+<class 'dict'>
+>>> d['one']=123
+>>> d
+{'one': 123}
+>>> 
+>>> d={'one':234,123:[12,34,56,7,67],111.90:(1,2,3,4),2+3j:897,True:'bool'}
+>>> d
+{'one': 234, 123: [12, 34, 56, 7, 67], 111.9: (1, 2, 3, 4), (2+3j): 897, True: 'bool'}
+>>> d['one']
+234
+>>> d['123]
+  
+SyntaxError: EOL while scanning string literal
+>>> d[123]
+[12, 34, 56, 7, 67]
+>>> d[123][::-1]
+[67, 7, 56, 34, 12]
+>>> d[123].sort()
+>>> d
+{'one': 234, 123: [7, 12, 34, 56, 67], 111.9: (1, 2, 3, 4), (2+3j): 897, True: 'bool'}
+>>> 
+>>> d[2+3j]
+897
+>>> d[2+3j]=986443
+>>> d
+{'one': 234, 123: [7, 12, 34, 56, 67], 111.9: (1, 2, 3, 4), (2+3j): 986443, True: 'bool'}
+>>> del(d[2+3j])
+>>> d
+{'one': 234, 123: [7, 12, 34, 56, 67], 111.9: (1, 2, 3, 4), True: 'bool'}
+>>> d.__delitem__('one')
+>>> d
+{123: [7, 12, 34, 56, 67], 111.9: (1, 2, 3, 4), True: 'bool'}
+>>> d['onetwo']=5678
+>>> d
+{123: [7, 12, 34, 56, 67], 111.9: (1, 2, 3, 4), True: 'bool', 'onetwo': 5678}
+>>> d['mantu']=d['onetwo']
+>>> d
+{123: [7, 12, 34, 56, 67], 111.9: (1, 2, 3, 4), True: 'bool', 'onetwo': 5678, 'mantu': 5678}
+>>> del(d['onetwo'])
+>>> d
+{123: [7, 12, 34, 56, 67], 111.9: (1, 2, 3, 4), True: 'bool', 'mantu': 5678}
+>>> 
+>>> 
+>>> 
+>>> d={'one':456,'one':897,'one':'two','three':987,'one':'last'}
+>>> d
+{'one': 'last', 'three': 987}
+>>> 
+>>> d={True:898,0:'bool false',1:'numeric 1',False:'numeric 0'}
+>>> d
+{True: 'numeric 1', 0: 'numeric 0'}
+>>> 
+>>> 
+>>> t=dict(a=12,b='hello',_12=67,'hello'=78)
+SyntaxError: keyword can't be an expression
+>>> t=dict(a=12,b='hello',_12=67,_'hello'=78)
+SyntaxError: invalid syntax
+>>> t=dict(a=12,b='hello',_12=67,hello=78)
+>>> t
+{'a': 12, 'b': 'hello', '_12': 67, 'hello': 78}
+>>> t[(56,)]=987
+>>> 

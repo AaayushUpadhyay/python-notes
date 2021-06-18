@@ -1,0 +1,294 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> class Abc:
+	a=12
+	def fun():
+		print("hello")
+
+		
+>>> Abc.__module__
+'__main__'
+>>> Abc.__dict__
+mappingproxy({'__module__': '__main__', 'a': 12, 'fun': <function Abc.fun at 0x011C0420>, '__dict__': <attribute '__dict__' of 'Abc' objects>, '__weakref__': <attribute '__weakref__' of 'Abc' objects>, '__doc__': None})
+>>> 
+>>> class Abc:
+	'hello its my class'
+	a=12
+	def fun():
+		print("hello")
+
+		
+>>> Abc.__dict__
+mappingproxy({'__module__': '__main__', '__doc__': 'hello its my class', 'a': 12, 'fun': <function Abc.fun at 0x02F41780>, '__dict__': <attribute '__dict__' of 'Abc' objects>, '__weakref__': <attribute '__weakref__' of 'Abc' objects>})
+>>> Abc.__doc__
+'hello its my class'
+>>> 
+>>> 
+>>> x=Abc()
+>>> x
+<__main__.Abc object at 0x02F476B0>
+>>> 
+>>> 
+>>> x.a
+12
+>>> Abc.a
+12
+>>> id(Abc.a)
+1889625360
+>>> id(x.a)
+1889625360
+>>> 
+>>> 
+>>> id(Abc.fun)
+49551232
+>>> id(x.fun)
+45956072
+>>> 
+>>> 
+>>> Abc.fun()
+hello
+>>> x.fun()
+Traceback (most recent call last):
+  File "<pyshell#29>", line 1, in <module>
+    x.fun()
+TypeError: fun() takes 0 positional arguments but 1 was given
+>>> class Abc:
+	a=12
+	def fun(self):
+		print("hello",self)
+
+		
+>>> 
+>>> 
+>>> d=Abc()
+>>> d
+<__main__.Abc object at 0x02F78A50>
+>>> d.fun()
+hello <__main__.Abc object at 0x02F78A50>
+>>> Abc.fun(d)
+hello <__main__.Abc object at 0x02F78A50>
+>>> d.fun()
+hello <__main__.Abc object at 0x02F78A50>
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Abc:
+	a=12
+	def fun(self):
+		print("hello",self.a)
+
+		
+>>> class Abc:
+	a=12
+	def fun(self):
+		print("hello",self.a,a)
+
+		
+>>> q=Abc()
+>>> q.fun()
+Traceback (most recent call last):
+  File "<pyshell#48>", line 1, in <module>
+    q.fun()
+  File "<pyshell#46>", line 4, in fun
+    print("hello",self.a,a)
+NameError: name 'a' is not defined
+>>> class Abc:
+	a=12
+	def fun(self):
+		print("hello",self.a)
+
+		
+>>> q=Abc()
+>>> q.fun()
+hello 12
+>>> id(q.a)
+1889625360
+>>> id(Abc.a)
+1889625360
+>>> q.a=1234
+>>> q.fun()
+hello 1234
+>>> q.__dict__()
+Traceback (most recent call last):
+  File "<pyshell#57>", line 1, in <module>
+    q.__dict__()
+TypeError: 'dict' object is not callable
+>>> q.__dict__
+{'a': 1234}
+>>> Abc.__dict__
+mappingproxy({'__module__': '__main__', 'a': 12, 'fun': <function Abc.fun at 0x02FBF858>, '__dict__': <attribute '__dict__' of 'Abc' objects>, '__weakref__': <attribute '__weakref__' of 'Abc' objects>, '__doc__': None})
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Abc:
+	_a=12
+	def _fun(self):
+		print("hello",self._a)
+	def hello(s,x):
+		s.a=x
+		s._fun()
+
+		
+>>> d=Abc()
+>>> d.hello(123)
+hello 12
+>>> class Abc:
+	_a=12
+	def _fun(self):
+		print("hello",self._a)
+	def hello(s,x):
+		s._a=x
+		s._fun()
+
+		
+>>> d=Abc()
+>>> d.hello(123)
+hello 123
+>>> d._a
+123
+>>> d._fun()
+hello 123
+>>> 
+>>> 
+>>> class Abc:
+	__a=12
+	def __fun(self):
+		print("hello",self.__a)
+	def hello(s,x):
+		s.__a=x
+		s.__fun()
+
+		
+>>> d=Abc()
+>>> d.hello('python')
+hello python
+>>> d.__a
+Traceback (most recent call last):
+  File "<pyshell#84>", line 1, in <module>
+    d.__a
+AttributeError: 'Abc' object has no attribute '__a'
+>>> d.__fun()
+Traceback (most recent call last):
+  File "<pyshell#85>", line 1, in <module>
+    d.__fun()
+AttributeError: 'Abc' object has no attribute '__fun'
+>>> d._Abc__a
+'python'
+>>> Abc.__mro__
+(<class '__main__.Abc'>, <class 'object'>)
+>>> 
+>>> 
+>>> class Abc:
+	def __init__(s,a,b):
+		print("welcome to Abc")
+		s.x=a
+		s.y=b
+
+		
+>>> Abc.__dict__
+mappingproxy({'__module__': '__main__', '__init__': <function Abc.__init__ at 0x02FBFDB0>, '__dict__': <attribute '__dict__' of 'Abc' objects>, '__weakref__': <attribute '__weakref__' of 'Abc' objects>, '__doc__': None})
+>>> d=Abc(12,34)
+welcome to Abc
+>>> d.__dict__
+{'x': 12, 'y': 34}
+>>> 
+>>> 
+>>> id(d)
+50095728
+>>> d.__init__('hello','python')
+welcome to Abc
+>>> id(d)
+50095728
+>>> class Abc:
+	def __init__(s,a,b):
+		print("welcome to Abc")
+		s.x=a
+		s.y=b
+	def __del__(s):
+		print("object of Abc deleted")
+
+		
+>>> t=Abc(2,3)
+welcome to Abc
+>>> del(t)
+object of Abc deleted
+>>> t=Abc(2,3)
+welcome to Abc
+>>> t.__del__()
+object of Abc deleted
+>>> t
+<__main__.Abc object at 0x02F78A90>
+>>> t.a
+Traceback (most recent call last):
+  File "<pyshell#112>", line 1, in <module>
+    t.a
+AttributeError: 'Abc' object has no attribute 'a'
+>>> t.x
+2
+>>> del(t)
+object of Abc deleted
+>>> t
+Traceback (most recent call last):
+  File "<pyshell#115>", line 1, in <module>
+    t
+NameError: name 't' is not defined
+>>> 
+>>> 
+>>> 
+>>> 
+>>> s=123
+>>> type(s)
+<class 'int'>
+>>> s
+123
+>>> print(s)
+123
+>>> t=Abc(2,3)
+welcome to Abc
+>>> t
+<__main__.Abc object at 0x02FC6870>
+>>> print(t)
+<__main__.Abc object at 0x02FC6870>
+>>> class Abc:
+	def __init__(s,a,b):
+		print("welcome to Abc")
+		s.x=a
+		s.y=b
+	def __str__(s):
+		return '{} {}'.format(s.x,s.y)
+	def __del__(s):
+		print("object of Abc deleted")
+
+		
+>>> d=Abc(2,3)
+welcome to Abc
+>>> print(d)
+2 3
+>>> str(d)
+'2 3'
+>>> d
+<__main__.Abc object at 0x02BF8510>
+>>> class Abc:
+	def __init__(s,a,b):
+		print("welcome to Abc")
+		s.x=a
+		s.y=b
+	def __repr__(s):
+		return '{} {}'.format(s.x,s.y)
+	def __del__(s):
+		print("object of Abc deleted")
+
+		
+>>> s=Abc(23,45)
+welcome to Abc
+>>> s
+23 45
+>>> print(s)
+23 45
+>>> str(s)
+'23 45'
+>>> 

@@ -1,0 +1,348 @@
+Python 3.6.0 (v3.6.0:41df79263a11, Dec 23 2016, 08:06:12) [MSC v.1900 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+>>> 
+>>> 
+
+
+>>> 
+
+>>> 
+
+
+>>> 
+
+>>> 
+>>> # Inheritance
+>>> 
+>>> class A:
+	def fun(sf):
+		print("In class A")
+
+		
+>>> class B(A):
+	def fun1(sf):
+		print("In class B")
+
+		
+>>> x=B()
+>>> x.fun()
+In class A
+>>> x.fun1()
+In class B
+>>> 
+>>> 
+>>> 
+>>> class A:
+	def fun(sf):
+		print("In class A")
+
+		
+>>> class B:
+	def fun1(sf):
+		print("In class B")
+
+		
+>>> class C(A,B):
+	def fun2(sf):
+		print("In class C")
+
+		
+>>> x=C()
+>>> x.fun()
+In class A
+>>> x.fun1()
+In class B
+>>> x.fun2()
+In class C
+>>> 
+>>> 
+>>> C.__mro__
+(<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
+>>> 
+>>> 
+>>> 
+>>> class A:
+	def fun1(sf):
+		print("In class A")
+
+		
+>>> class B(A):
+	def fun2(sf):
+		print("In class B")
+
+		
+>>> class C(B):
+	def fun3(sf):
+		print("In class C")
+
+		
+>>> 
+>>> x=C()
+>>> x.fun1()
+In class A
+>>> x.fun2()
+In class B
+>>> x.fun3()
+In class C
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class A:
+	a=10
+	b=20
+	def fun1(sf):
+		print("Class A")
+
+		
+>>> class B:
+	x=A()
+	def fun2(sf):
+		print("In class B")
+
+		
+>>> z=B()
+>>> 
+>>> z.fun2()
+In class B
+>>> z.x.a
+10
+>>> z.x.b
+20
+>>> z.x.fun1()
+Class A
+>>> # Composition
+>>> 
+>>> 
+>>> 
+>>> a=10
+>>> b=20
+>>> 
+>>> 
+>>> class A:
+	def fun(sf):
+		print("In class A")
+
+		
+>>> class B:
+	def fun(sf):
+		print("In class B")
+
+		
+>>> class C(A,B):
+	def fun(sf):
+		print("In class C")
+
+		
+>>> x=C()
+>>> x.fun()
+In class C
+>>> 
+>>> 
+>>> a=10
+>>> a=100
+>>> 
+>>> 
+>>> a
+100
+>>> 
+>>> 
+>>> class A:
+	def fun(sf):
+		print("In class A")
+
+		
+>>> class B(A):
+	def fun(sf):
+		print("In class B")
+		super(B,sf).fun()
+
+		
+>>> class C(B):
+	def fun(sf):
+		print("In class B")
+		super(C,sf).fun()
+
+		
+>>> 
+>>> x=C()
+>>> x.fun()
+In class B
+In class B
+In class A
+>>> 
+>>> 
+>>> #################################
+>>> 
+>>> # Polymorphism
+>>> 
+>>> 
+>>> 
+>>> a=10
+>>> b=20
+>>> 
+>>> a+b
+30
+>>> 
+>>> a.__add__(b)
+30
+>>> a-b
+-10
+>>> a.__sub__(b)
+-10
+>>> 
+>>> a*b
+200
+>>> a.__mul__(b)
+200
+>>> 
+>>> a==b
+False
+>>> 
+>>> a.__eq__(b)
+False
+>>> 
+>>> a<b
+True
+>>> a.__lt__(b)
+True
+>>> 
+>>> 
+>>> 
+>>> class Sample:
+	def __init__(sf,x,y):
+		sf.a=x
+		sf.b=y
+		print("Object Created")
+
+		
+>>> class Sample:
+	def __init__(sf,x,y):
+		sf.a=x
+		sf.b=y
+		print("Object Created")
+	def __add__(sf,oth):
+		return(sf.a-oth.a,sf.b-oth.b)
+	def __sub__(sf,oth):
+		return(sf.a+oth.a,sf.b+oth.b)
+	def __mul__(sf,oth):
+		return(sf.a/oth.a,sf.b/oth.b)
+	def __eq__(sf,oth):
+		return(sf.a*oth.a==sf.b*oth.b)
+
+	
+>>> 
+>>> 
+>>> x=Sample(20,40)
+Object Created
+>>> x.a
+20
+>>> x.b
+40
+>>> y=Sample(10,20)
+Object Created
+>>> y.a
+10
+>>> y.b
+20
+>>> 
+>>> 
+>>> x+y
+(10, 20)
+>>> 
+>>> 
+>>> class Sample:
+	def __init__(sf,x,y):
+		sf.a=x
+		sf.b=y
+		print("Object Created")
+	def __add__(sf,oth):
+		return(sf.a-oth.a,sf.b-oth.b)
+	def __sub__(sf,oth):
+		return(sf.a+oth.a,sf.b+oth.b)
+	def __mul__(sf,oth):
+		return(sf.a/oth.a,sf.b/oth.b)
+	def __eq__(sf,oth):
+		return(sf.a*oth.a==sf.b*oth.b)
+	def __ne__(sf,oth):
+		return(sf.a*oth.a!=sf.b*oth.b)
+	def __lt__(sf,oth):
+		return(sf.a*oth.a<sf.b*oth.b)
+	def __gt__(sf,oth):
+		return(sf.a*oth.a>sf.b*oth.b)
+	def __le__(sf,oth):
+		return(sf.a*oth.a<=sf.b*oth.b)
+	def __ge__(sf,oth):
+		return(sf.a*oth.a>=sf.b*oth.b)
+
+	
+>>> 
+>>> 
+>>> a=10
+>>> a
+10
+>>> print(a)
+10
+>>> 
+>>> class Sample:
+	def __init__(sf,x,y):
+		sf.a=x
+		sf.b=y
+		print("Object Created")
+	def __repr__(sf):
+		return "It's a representation method"
+	def __str__(sf):
+		return "It's a print method"
+	def __add__(sf,oth):
+		return(sf.a-oth.a,sf.b-oth.b)
+	def __sub__(sf,oth):
+		return(sf.a+oth.a,sf.b+oth.b)
+	def __mul__(sf,oth):
+		return(sf.a/oth.a,sf.b/oth.b)
+	def __eq__(sf,oth):
+		return(sf.a*oth.a==sf.b*oth.b)
+	def __ne__(sf,oth):
+		return(sf.a*oth.a!=sf.b*oth.b)
+	def __lt__(sf,oth):
+		return(sf.a*oth.a<sf.b*oth.b)
+	def __gt__(sf,oth):
+		return(sf.a*oth.a>sf.b*oth.b)
+	def __le__(sf,oth):
+		return(sf.a*oth.a<=sf.b*oth.b)
+	def __ge__(sf,oth):
+		return(sf.a*oth.a>=sf.b*oth.b)
+
+	
+>>> 
+>>> x=Sample(10,20)
+Object Created
+>>> 
+>>> 
+>>> print(x)
+It's a print method
+>>> 
+>>> x
+It's a representation method
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Sample:
+	def fun(sf,name=None):
+		if name is None:
+			print("Good Morning")
+		else:
+			print("Good evening "+ name)
+
+			
+>>> 
+>>> 
+>>> x=Sample()
+>>> x.fun()
+Good Morning
+>>> 
+>>> x.fun('Nitesh')
+Good evening Nitesh
+>>> 

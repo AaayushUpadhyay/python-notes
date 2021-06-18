@@ -1,0 +1,176 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+>>> 
+>>> #class
+>>> 
+>>> class A:
+	def fun(s):
+		print("in fun ")
+	def fun2():
+		print("in fun2")
+
+		
+>>> d=A()
+>>> id(A.fun)
+42075168
+>>> id(A.fun2)
+48965504
+>>> id(d.fun2)
+45366288
+>>> id(d.fun)
+11004064
+>>> 
+>>> class A:
+	def fun(s):
+		print("in fun ")
+	@staticmethod
+	def fun2():
+		print("in fun2")
+
+		
+>>> d=A()
+>>> id(A.fun)
+49243672
+>>> id(A.fun2)
+49243888
+>>> id(d.fun2)
+49243888
+>>> a=12.3
+>>> a.hex()
+'0x1.899999999999ap+3'
+>>> a.hex(123)
+Traceback (most recent call last):
+  File "<pyshell#25>", line 1, in <module>
+    a.hex(123)
+TypeError: hex() takes no arguments (1 given)
+>>> float.hex(123.4)
+'0x1.ed9999999999ap+6'
+>>> 
+>>> s='abcde'
+>>> 
+>>> 
+>>> class A:
+	def fun(s):
+		print("in fun ")
+	@staticmethod
+	def fun2(name):
+		print("in fun2",name)
+
+		
+>>> d=A()
+>>> d.fun2(123)
+in fun2 123
+>>> 
+>>> 
+>>> 
+>>> class A:
+	def __init__(s,age):
+		s.a=age
+		print("age is",s.a)
+	@classmethod
+	def agecal(cname,st,stp):
+		return cname(stp-st)
+
+	
+>>> d=A(12)
+age is 12
+>>> d=A.agecal(1,65)
+age is 64
+>>> id(A.agecal)
+11004064
+>>> id(d.agecal)
+45366288
+>>> 
+>>> 
+>>> d.agecal(4,5)
+age is 1
+<__main__.A object at 0x02EE97D0>
+>>> 
+>>> 
+>>> 
+>>> #decorators
+>>> 
+>>> class A:
+	def __call__(s):
+		print("welcome to sajjanpur")
+
+		
+>>> d=A()
+>>> 
+>>> d()
+welcome to sajjanpur
+>>> d
+<__main__.A object at 0x02F12E90>
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 0
+0
+>>> 
+>>> 
+>>> class Mydec:
+	def __init__(s,fnc):
+		s.fun=fnc
+	def __call__(s,number):
+		op=s.fun(number)
+		if op[0]==number;
+		
+SyntaxError: invalid syntax
+>>> class Mydec:
+	def __init__(s,fnc):
+		s.fun=fnc
+	def __call__(s,number):
+		op=s.fun(number)
+		if op[0]==number:
+			print("its a ",op[1])
+		else:
+			print("its not a",op[1])
+
+			
+>>> def arm(n):
+	return sum([int(i)**len(str(n)) for i in str(n)]),'Armstrong'
+
+>>> 
+>>> d=Mydec(arm)
+>>> d(153)
+its a  Armstrong
+>>> d(123)
+its not a Armstrong
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Mydec:
+	def __init__(s,fnc):
+		s.fun=fnc
+	def __call__(s,number):
+		op=s.fun(number)
+		if op[0]==number:
+			print("its a ",op[1])
+		else:
+			print("its not a",op[1])
+
+			
+>>> @Mydec
+def arm(n):
+	return sum([int(i)**len(str(n)) for i in str(n)]),'Armstrong'
+
+>>> 
+>>> 
+>>> arm(153)
+its a  Armstrong
+>>> arm
+<__main__.Mydec object at 0x02F12E90>
+>>> arm.__dict__
+{'fun': <function arm at 0x02F37228>}
+>>> @Mydec
+def pallindrome(n):
+	return int(str(n)[::-1]),'Pallindrome'
+
+>>> pallindrome(123)
+its not a Pallindrome
+>>> arm(123)
+its not a Armstrong
+>>> 

@@ -1,0 +1,426 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> #class
+>>> 
+>>> 
+>>> 
+>>> class Sample:
+	a=10
+	b=20
+
+	
+>>> x=Sample()
+>>> x.a
+10
+>>> x.b
+20
+>>> x.a=100
+>>> x.a
+100
+>>> x.b=200
+>>> x.b
+200
+>>> 
+>>> 
+>>> a
+Traceback (most recent call last):
+  File "<pyshell#17>", line 1, in <module>
+    a
+NameError: name 'a' is not defined
+>>> 
+>>> 
+>>> class Sample:
+	a=10
+	_b=20
+	__c=30
+
+	
+>>> x=Sample()
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Sample:
+	a=10
+	b=20
+
+	
+>>> x=Sample()
+>>> y=Sample()
+>>> 
+>>> 
+>>> x.a
+10
+>>> x.b
+20
+>>> x.a=100
+>>> x.b=200
+>>> x.a
+100
+>>> x.b
+200
+>>> 
+>>> 
+>>> y.a
+10
+>>> y.b
+20
+>>> 
+>>> 
+>>> class Sample:
+	a=10
+	_b=20
+	__c=30
+
+	
+>>> x=Sample()
+>>> x.a
+10
+>>> x.a=100
+>>> x.a
+100
+>>> x._b
+20
+>>> 
+>>> x._Sample__c
+30
+>>> x.__c
+Traceback (most recent call last):
+  File "<pyshell#60>", line 1, in <module>
+    x.__c
+AttributeError: 'Sample' object has no attribute '__c'
+>>> x._Sample__c=300
+>>> x._Sample__c
+300
+>>> 
+>>> 
+>>> 
+>>> class Sample:
+	a=10
+	b=20
+	def fun(self):
+		print("Hello")
+
+		
+>>> x=Sample()
+>>> x.a
+10
+>>> x.b
+20
+>>> x.fun()
+Hello
+>>> 
+>>> 
+>>> class Sample:
+	a=10
+	b=20
+	def fun(python):
+		a=100
+		b=200
+		print(a,b)
+
+		
+>>> x=Sample()
+>>> x.a
+10
+>>> x.b
+20
+>>> x.fun()
+100 200
+>>> 
+>>> 
+>>> class Sample:
+	a=10
+	b=20
+	def fun(python):
+		print(a,b)
+
+		
+>>> x=Sample()
+>>> x.fun()
+Traceback (most recent call last):
+  File "<pyshell#91>", line 1, in <module>
+    x.fun()
+  File "<pyshell#89>", line 5, in fun
+    print(a,b)
+NameError: name 'a' is not defined
+>>> x.a
+10
+>>> x.b
+20
+>>> 
+>>> 
+>>> 
+>>> class Sample:
+	a=10
+	b=20
+	def fun():
+		print(a,b)
+
+		
+>>> x=Sample()
+>>> x.a
+10
+>>> x.b
+20
+>>> x.fun()
+Traceback (most recent call last):
+  File "<pyshell#103>", line 1, in <module>
+    x.fun()
+TypeError: fun() takes 0 positional arguments but 1 was given
+>>> 
+>>> 
+>>> class Sample:
+	a=10
+	b=20
+	def fun(self):
+		a=100
+		b=200
+		print(a,b,self.a,self.b)
+
+		
+>>> x=Sample()
+>>> x.a
+10
+>>> x.b
+20
+>>> x.fun()
+100 200 10 20
+>>> 
+>>> 
+>>> class Sample:
+	def fun(self,x,y):
+		sf.a=x
+		sf.b=y
+		print(self.a,self.b)
+
+		
+>>> x=Sample()
+>>> x.fun(100,200)
+Traceback (most recent call last):
+  File "<pyshell#120>", line 1, in <module>
+    x.fun(100,200)
+  File "<pyshell#118>", line 3, in fun
+    sf.a=x
+NameError: name 'sf' is not defined
+>>> class Sample:
+	def fun(sf,x,y):
+		sf.a=x
+		sf.b=y
+		print(sf.a,sf.b)
+
+		
+>>> x=Sample()
+>>> 
+>>> x.fun(10,20)
+10 20
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Sample:
+	def fun(sf,x,y):
+		sf.a=x
+		sf.b=y
+	def out(self)
+	
+SyntaxError: invalid syntax
+>>> class Sample:
+	def fun(sf,x,y):
+		sf.a=x
+		sf.b=y
+		sf.out()
+	def out(self):
+		print(self.a,self.b)
+
+		
+>>> x=Sample()
+>>> x.fun(100,200)
+100 200
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> #
+>>> 
+>>> class A:
+	def __init__(s):
+		print("in class A")
+
+		
+>>> class B(A):
+	def fun(s):
+		print("in class B")
+
+		
+>>> d=B()
+in class A
+>>> d.fun()
+in class B
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Res:
+	def __init__(s,a):
+		s.a=a
+	def res(s):
+		if s.a==s.r:
+			print("its a ",s.n)
+		else:
+			print("its not a ",s.n)
+
+			
+>>> class Arm:
+	def fun(s):
+		s.r=sum([int(i)**len(str(s.a)) for i in str(s.a)])
+		s.n='armstrong'
+
+		
+>>> 
+>>> 
+>>> class Res:
+	def __init__(s,a):
+		s.a=a
+	def res(s):
+		if s.a==s.r:
+			print("its a ",s.n)
+		else:
+			print("its not a ",s.n)
+
+			
+>>> class Arm(Res):
+	def fun(s):
+		s.r=sum([int(i)**len(str(s.a)) for i in str(s.a)])
+		s.n='armstrong'
+
+		
+>>> d=Arm(123)
+>>> d.__dict__
+{'a': 123}
+>>> d.fun()
+>>> d.__dict__
+{'a': 123, 'r': 36, 'n': 'armstrong'}
+>>> d.res()
+its not a  armstrong
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Res:
+	def __init__(s,a):
+		s.a=a
+	def res(s):
+		if s.a==s.r:
+			print("its a ",s.n)
+		else:
+			print("its not a ",s.n)
+
+			
+>>> class Arm(Res):
+	def fun(s):
+		s.r=sum([int(i)**len(str(s.a)) for i in str(s.a)])
+		s.n='armstrong'
+		s.res()
+
+		
+>>> d=Arm(123)
+>>> d.fun()
+its not a  armstrong
+>>> class Res:
+	def __init__(s,a):
+		s._a=a
+	def _res(s):
+		if s._a==s._r:
+			print("its a ",s._n)
+		else:
+			print("its not a ",s._n)
+
+			
+>>> class Arm(Res):
+	def fun(q):
+		q._r=sum([int(i)**len(str(q._a)) for i in str(q._a)])
+		q._n='armstrong'
+		q._res()
+
+		
+>>> d=Arm(153)
+>>> d.fun()
+its a  armstrong
+>>> d.__mro__
+Traceback (most recent call last):
+  File "<pyshell#205>", line 1, in <module>
+    d.__mro__
+AttributeError: 'Arm' object has no attribute '__mro__'
+>>> Arm.__mro__
+(<class '__main__.Arm'>, <class '__main__.Res'>, <class 'object'>)
+>>> 
+>>> 
+>>> class Res:
+	def __init__(s,a):
+		s.__a=a
+	def __res(s):
+		if s.__a==s.__r:
+			print("its a ",s.__n)
+		else:
+			print("its not a ",s.__n)
+
+			
+>>> class Palin(Res):
+	def fun(q):
+		try:
+			s.__r=int(str(s.__a)[::-1])
+		except:
+			s.__r=s.__a[::-1]
+		q.__n='Pallindrome'
+		q.__res()
+
+		
+>>> t=Palin('nitin')
+>>> t.fun()
+Traceback (most recent call last):
+  File "<pyshell#212>", line 4, in fun
+    s.__r=int(str(s.__a)[::-1])
+NameError: name 's' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<pyshell#214>", line 1, in <module>
+    t.fun()
+  File "<pyshell#212>", line 6, in fun
+    s.__r=s.__a[::-1]
+NameError: name 's' is not defined
+>>> class Palin(Res):
+	def fun(q):
+		try:
+			q.__r=int(str(q.__a)[::-1])
+		except:
+			q.__r=q.__a[::-1]
+		q.__n='Pallindrome'
+		q.__res()
+
+		
+>>> t=Palin('nitin')
+>>> t.fun()
+Traceback (most recent call last):
+  File "<pyshell#216>", line 4, in fun
+    q.__r=int(str(q.__a)[::-1])
+AttributeError: 'Palin' object has no attribute '_Palin__a'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<pyshell#218>", line 1, in <module>
+    t.fun()
+  File "<pyshell#216>", line 6, in fun
+    q.__r=q.__a[::-1]
+AttributeError: 'Palin' object has no attribute '_Palin__a'
+>>> t.__dict__
+{'_Res__a': 'nitin'}
+>>> 

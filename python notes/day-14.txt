@@ -1,0 +1,163 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> input('enter 5 numbers with spaces')
+enter 5 numbers with spaces100 34 56 78 98
+'100 34 56 78 98'
+>>> '100 34 56 78 98'.split()
+['100', '34', '56', '78', '98']
+>>> 
+>>> 
+>>> input('enter 5 numbers with spaces').split()
+enter 5 numbers with spaces123 765 4 5 9
+['123', '765', '4', '5', '9']
+>>> for i in ['123', '765', '4', '5', '9']:
+	print(int(i))
+
+	
+123
+765
+4
+5
+9
+>>> for i in input('enter 5 numbers with spaces').split():
+	print(int(i))
+
+	
+enter 5 numbers with spaces123 7 6 5 8
+123
+7
+6
+5
+8
+>>> [int(i) for i in input('enter 5 numbers with spaces').split()]
+enter 5 numbers with spaces 12 3 4 5 6
+[12, 3, 4, 5, 6]
+>>> x=[int(i) for i in input('enter 5 numbers with spaces').split()]
+enter 5 numbers with spaces123 456 789 8 6
+>>> sum(x)/len(x)
+276.4
+>>> 
+>>> a='the times of india'
+>>> a.title()
+'The Times Of India'
+>>> 
+>>> a.upper()
+'THE TIMES OF INDIA'
+>>> a='7052196666'
+>>> a.rjust(11)
+' 7052196666'
+>>> a.rjust(11,'0')
+'07052196666'
+>>> 
+>>> a.zfill(11)
+'07052196666'
+>>> a.zfill(12)
+'007052196666'
+>>> a.zfill(13)
+'0007052196666'
+>>> 
+>>> 
+>>> a='0123456789-+`;()*&^%$'
+>>> len(a)
+21
+>>> b='abcdefghijklmnopqrst'
+>>> len(b)
+20
+>>> b='abcdefghijklmnopqrstu'
+>>> len(b)
+21
+>>> 
+>>> 
+>>> 
+>>> a.maketrans(a,b)
+{48: 97, 49: 98, 50: 99, 51: 100, 52: 101, 53: 102, 54: 103, 55: 104, 56: 105, 57: 106, 45: 107, 43: 108, 96: 109, 59: 110, 40: 111, 41: 112, 42: 113, 38: 114, 94: 115, 37: 116, 36: 117}
+>>> 
+>>> a.maketrans(b,a)
+{97: 48, 98: 49, 99: 50, 100: 51, 101: 52, 102: 53, 103: 54, 104: 55, 105: 56, 106: 57, 107: 45, 108: 43, 109: 96, 110: 59, 111: 40, 112: 41, 113: 42, 114: 38, 115: 94, 116: 37, 117: 36}
+>>> 
+>>> "hello abcdef".translate(a.maketrans(b,a))
+'74++( 012345'
+>>> '74++( 012345'.translate(a.maketrans(a,b))
+'hello abcdef'
+>>> a='python is a scripting lang'
+>>> a.split()
+['python', 'is', 'a', 'scripting', 'lang']
+>>> for i in ['python', 'is', 'a', 'scripting', 'lang']:
+	print(i[::-1])
+
+	
+nohtyp
+si
+a
+gnitpircs
+gnal
+>>> [i[::-1] for i in a.split()]
+['nohtyp', 'si', 'a', 'gnitpircs', 'gnal']
+>>> " ".join([i[::-1] for i in a.split()])
+'nohtyp si a gnitpircs gnal'
+>>> 
+>>> 
+>>> a='hello aman welcome to python programming .unleash the talent with in'
+>>> "".join(set(a))
+'wtglcnoashrpmye i.u'
+>>> len("".join(set(a)))
+19
+>>> 
+>>> a='hello aman welcome'
+>>> 
+>>> 
+>>> 
+>>> a='hello aman welcome to python programming .unleash the talent with in'
+>>> "".join(set(a))
+'wtglcnoashrpmye i.u'
+>>> len("".join(set(a)))
+19
+>>> for i in range(58,58-len("".join(set(a)))-1,-1):
+	print(chr(i),end=' ')
+
+: 9 8 7 6 5 4 3 2 1 0 / . - , + * ) ( ' 
+>>> for i in range(58,58-len("".join(set(a)))-1,-1):
+	print(chr(i),end='')
+
+	
+:9876543210/.-,+*)('
+>>> len(:9876543210/.-,+*)(')
+		       
+SyntaxError: invalid syntax
+>>> len(:9876543210/.-,+*)
+SyntaxError: invalid syntax
+>>> len(':9876543210/.-,+*')
+17
+>>> for i in range(58,58-len("".join(set(a))),-1):
+	print(chr(i),end='')
+
+	
+:9876543210/.-,+*)(
+>>> len(':9876543210/.-,+*)(')
+19
+>>> 
+>>> a='hello aman welcome to python programming .unleash the talent with in'
+>>> 
+>>> "".join(set(a))
+'wtglcnoashrpmye i.u'
+>>> ''.join([chr(i) for i in range(58,58-len(set(a)),-1)])
+':9876543210/.-,+*)('
+>>> str.maketrans("".join(set(a)),''.join([chr(i) for i in range(58,58-len(set(a)),-1)]))
+{119: 58, 116: 57, 103: 56, 108: 55, 99: 54, 110: 53, 111: 52, 97: 51, 115: 50, 104: 49, 114: 48, 112: 47, 109: 46, 121: 45, 101: 44, 32: 43, 105: 42, 46: 41, 117: 40}
+>>> a.translate(str.maketrans("".join(set(a)),''.join([chr(i) for i in range(58,58-len(set(a)),-1)])))
+'1,774+3.35+:,764.,+94+/-9145+/04803..*58+)(57,321+91,+937,59+:*91+*5'
+>>> a.translate(str.maketrans("".join(set(a)),''.join([chr(i) for i in range(64,64-len(set(a)),-1)])))
+'72==:1949;1@2=<:421?:153?7:;156:>69440;>1/.;=29871?721?9=2;?1@0?710;'
+>>> chr(65)
+'A'
+>>> chr(64)
+'@'
+>>> a=['abc','hello','a','abc','a','x','w','hello','w','hello','x']
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> len(a)
+11
+>>> 

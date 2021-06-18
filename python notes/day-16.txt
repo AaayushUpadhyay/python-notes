@@ -1,0 +1,295 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> #multiple arguments
+>>> def fun(*a):
+	print(a)
+
+	
+>>> fun(4,5,6,7,8,'hello','hoi','bye',545432)
+(4, 5, 6, 7, 8, 'hello', 'hoi', 'bye', 545432)
+>>> 
+>>> 
+>>> #miltiple key word argumemnts
+>>> #multiple key word argumemnts **kwargs
+>>> def fun(**a):
+	print(a)
+
+	
+>>> fun(a=12,b=78,c=786,d=0877865)
+SyntaxError: invalid token
+>>> fun(a=12,b=78,c=786,d=877865)
+{'a': 12, 'b': 78, 'c': 786, 'd': 877865}
+>>> 
+>>> from tkinter import *
+>>> scr=Tk()
+>>> b=Button(scr,bg='blue',fg='yellow',cursor='circle',font=('times',26,'bold'))
+>>> b.pack()
+>>> 
+>>> 
+>>> 
+>>> def fun(*b,**a):
+	print(b,a)
+
+	
+>>> fun(4,5,6,7,8,'hello','hoi','bye',545432,bg='blue',fg='yellow',cursor='circle',font=('times',26,'bold'))
+(4, 5, 6, 7, 8, 'hello', 'hoi', 'bye', 545432) {'bg': 'blue', 'fg': 'yellow', 'cursor': 'circle', 'font': ('times', 26, 'bold')}
+>>> 
+>>> 
+>>> 
+>>> 
+>>> fun(4,5,6,7,8,'hello','hoi','bye',545432,bg='blue',fg='yellow',cursor='circle',font=('times',26,'bold'),988768)
+SyntaxError: positional argument follows keyword argument
+>>> 
+>>> 
+>>> 
+>>> 
+>>> #lambda functions
+>>> 
+>>> #syntax  lambda inputs:output
+>>> 
+>>> area=lambda r:3.14*r**2
+>>> 
+>>> area(2)
+12.56
+>>> 
+>>> 
+>>> a=lambda x,y:(x+y,x-y,x/y,x*y,x**y,x//y,x%y)
+>>> 
+>>> a(2,4)
+(6, -2, 0.5, 8, 16, 0, 2)
+>>> 
+>>> 
+>>> a=lambda :print('hello')
+>>> 
+>>> a()
+hello
+>>> def fun(n):
+	a=-1
+	b=1
+	for i in range(n):
+		c=a+b
+		print(c)
+		a=b
+		b=c
+
+		
+>>> fun(5)
+0
+1
+1
+2
+3
+>>> def fun(n):
+	a=0
+	b=1
+	print(a,b)
+	for i in range(n-2):
+		c=a+b
+		print(c)
+		a=b
+		b=c
+
+		
+>>> fun(5)
+0 1
+1
+2
+3
+>>> def fun(n):
+	a=-1
+	b=1
+	for i in range(n-2):
+		a,b=b,a+b
+		print(b)
+
+		
+>>> fun(5)
+0
+1
+1
+>>> def fun(n):
+	a=-1
+	b=1
+	for i in range(n):
+		a,b=b,a+b
+		print(b)
+
+		
+>>> fun(5)
+0
+1
+1
+2
+3
+>>> def fun(n):
+	a=-1
+	b=1
+	l=[]
+	for i in range(n):
+		a,b=b,a+b
+		l.append(b)
+	return l
+
+>>> fun(5)
+[0, 1, 1, 2, 3]
+>>> def fun(n):
+	a=-1
+	b=1
+	for i in range(n):
+		a,b=b,a+b
+		return b
+
+	
+>>> fun(5)
+0
+>>> def fun():
+	return 'welcome'
+	return 'bye'
+	return 'hello'
+
+>>> fun()
+'welcome'
+>>> 
+>>> 
+>>> 
+>>> def fun():
+	yield 'welcome'
+	yield 'bye'
+	yield 'hello'
+
+	
+>>> d=fun()
+>>> d
+<generator object fun at 0x0342F170>
+>>> next(d)
+'welcome'
+>>> next(d)
+'bye'
+>>> next(d)
+'hello'
+>>> 
+>>> next(d)
+Traceback (most recent call last):
+  File "<pyshell#92>", line 1, in <module>
+    next(d)
+StopIteration
+>>> d=fun()
+>>> d.__next__()
+'welcome'
+>>> d.__next__()
+'bye'
+>>> d.__next__()
+'hello'
+>>> d.__next__()
+Traceback (most recent call last):
+  File "<pyshell#97>", line 1, in <module>
+    d.__next__()
+StopIteration
+>>> d=fun()
+>>> list(d)
+['welcome', 'bye', 'hello']
+>>> list(d)
+[]
+>>> d=fun()
+>>> tuple(d)
+('welcome', 'bye', 'hello')
+>>> tuple(d)
+()
+>>> d=fun()
+>>> set(d)
+{'hello', 'welcome', 'bye'}
+>>> 
+>>> d=fun()
+>>> print(*d)
+welcome bye hello
+>>> 
+>>> def fun(n):
+	a=-1
+	b=1
+	for i in range(n):
+		a,b=b,a+b
+		yield b
+
+		
+>>> fun(10000)
+<generator object fun at 0x03452530>
+>>> a=fun(10000)
+>>> next(a)
+0
+>>> next(a)
+1
+>>> del(a)
+>>> 
+>>> 
+>>> 
+>>> 
+>>> def fun(n):
+	if n==1:
+		return 1
+	return n*fun(n-1)
+
+>>> 
+>>> a=[7,3,9,7,6,7,8,9,55,12,14,17,19,15,16]
+>>> [fun(i) for i in a]
+[5040, 6, 362880, 5040, 720, 5040, 40320, 362880, 12696403353658275925965100847566516959580321051449436762275840000000000000, 479001600, 87178291200, 355687428096000, 121645100408832000, 1307674368000, 20922789888000]
+>>> 
+>>> 
+>>> d=map(fun,a)
+>>> next(d)
+5040
+>>> next(d)
+6
+>>> next(d)
+362880
+>>> list(d)
+[5040, 720, 5040, 40320, 362880, 12696403353658275925965100847566516959580321051449436762275840000000000000, 479001600, 87178291200, 355687428096000, 121645100408832000, 1307674368000, 20922789888000]
+>>> 
+>>> 
+>>> [int(i) for i in input().split()]
+12 34 56 78 90 87 65 43 21
+[12, 34, 56, 78, 90, 87, 65, 43, 21]
+>>> 
+>>> d=map(int,input().split())
+1 2 3 45 6 7 8  912 34 56 78 90
+>>> list(d)
+[1, 2, 3, 45, 6, 7, 8, 912, 34, 56, 78, 90]
+>>> 
+>>> 
+>>> def hcf(x,y):
+	if x>y:
+		c=y
+	else:
+		c=x
+	for i in range(1,c+1):
+		if x%i==0 and y%i==0:
+			hcf=i
+	return hcf,(x*y)//hcf
+
+>>> hcf(15,25)
+(5, 75)
+>>> 
+>>> 
+>>> b=[1, 2, 3, 45, 6, 7, 8, 912, 34, 56, 78, 90]
+>>> a
+[7, 3, 9, 7, 6, 7, 8, 9, 55, 12, 14, 17, 19, 15, 16]
+>>> len(a)
+15
+>>> len(b)
+12
+>>> d=map(hcf,a,b)
+>>> list(d)
+[(1, 7), (1, 6), (3, 9), (1, 315), (6, 6), (7, 7), (8, 8), (3, 2736), (1, 1870), (4, 168), (2, 546), (1, 1530)]
+>>> len([(1, 7), (1, 6), (3, 9), (1, 315), (6, 6), (7, 7), (8, 8), (3, 2736), (1, 1870), (4, 168), (2, 546), (1, 1530)])
+12
+>>> 
+>>> a
+[7, 3, 9, 7, 6, 7, 8, 9, 55, 12, 14, 17, 19, 15, 16]
+>>> d=filter(lambda i:i%2==0,a)
+>>> list(d)
+[6, 8, 12, 14, 16]
+>>> d=filter(lambda i:i%2!=0,a)
+>>> list(d)
+[7, 3, 9, 7, 7, 9, 55, 17, 19, 15]
+>>> [i for i in a if i%2!=0]
+[7, 3, 9, 7, 7, 9, 55, 17, 19, 15]
+>>> 

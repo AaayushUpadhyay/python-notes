@@ -1,0 +1,265 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> a=12
+>>> type(a)
+<class 'int'>
+>>> a=int(12)
+>>> type(a)
+<class 'int'>
+>>> 
+>>> 
+>>> b=12
+>>> c=12
+>>> id(a)
+1894606096
+>>> id(b)
+1894606096
+>>> id(c)
+1894606096
+>>> 
+>>> 
+>>> a=13
+>>> id(a)
+1894606112
+>>> id(b)
+1894606096
+>>> id(c)
+1894606096
+>>> a=b=c=d=e=12
+>>> 
+>>> 
+>>> bin(12)
+'0b1100'
+>>> a.bit_length()
+4
+>>> 
+>>> a=123
+>>> a.bit_length()
+7
+>>> 
+>>> 
+>>> a=0
+>>> a.__sizeof__()
+12
+>>> a=12
+>>> a.__sizeof__()
+14
+>>> a=32767
+>>> a.__sizeof__()
+14
+>>> a=32768
+>>> a.__sizeof__()
+16
+>>> a=2**320000
+>>> a.__sizeof__()
+42680
+>>> 
+>>> 
+>>> del(a)
+>>> a
+Traceback (most recent call last):
+  File "<pyshell#40>", line 1, in <module>
+    a
+NameError: name 'a' is not defined
+>>> 
+>>> 
+>>> #float
+>>> 
+>>> a=123
+>>> type(a)
+<class 'int'>
+>>> a=123.67
+>>> type(a)
+<class 'float'>
+>>> 
+>>> 
+>>> id(a)
+40260720
+>>> 
+>>> a.hex()
+'0x1.eeae147ae147bp+6'
+>>> 
+>>> a.fromhex('0x1.eeae147ae147bp+6')
+123.67
+>>> a.fromhex('0x.eeae147ae147bp+6')
+59.67
+>>> 
+>>> #bool
+>>> a=True
+>>> type(a)
+<class 'bool'>
+>>> a.bit_length()
+1
+>>> a=False
+>>> a.bit_length()
+0
+>>> abs(True)
+1
+>>> abs(False)
+0
+>>> bool(-1234)
+True
+>>> bool(0)
+False
+>>> 
+>>> 
+>>> #complex
+>>> a=2+3j
+>>> type(a)
+<class 'complex'>
+>>> a=2+3i
+SyntaxError: invalid syntax
+>>> a.real
+2.0
+>>> a.imag
+3.0
+
+>>> #str
+>>> "hello"
+'hello'
+>>> "hello's"
+"hello's"
+>>> 'hello"s'
+'hello"s'
+>>> 
+>>> 
+>>> a='a'
+>>> type(a)
+<class 'str'>
+>>> 
+>>> #operators
+>>> #arth +,-,/,*,%,// floor,**power
+>>> 
+>>> 1+@
+SyntaxError: invalid syntax
+>>> 1+2
+3
+>>> "a"+"b"
+'ab'
+>>> "a".__add__("hello")
+'ahello'
+>>> 
+>>> a=12
+>>> b=345
+>>> a-b
+-333
+>>> a.__sub__(b)
+-333
+>>> 12*3
+36
+>>> "hello"*3
+'hellohellohello'
+>>> "hello ".__mul__(4)
+'hello hello hello hello '
+>>> 5/2
+2.5
+>>> 4/2
+2.0
+>>> 5//2
+2
+>>> 1.9//1
+1.0
+>>> 
+>>> 5%2
+1
+>>> 4%2
+0
+>>> 2**3
+8
+>>> pow(2,3)
+8
+>>> help(pow)
+Help on built-in function pow in module builtins:
+
+pow(x, y, z=None, /)
+    Equivalent to x**y (with two arguments) or x**y % z (with three arguments)
+    
+    Some types, such as ints, are able to use a more efficient algorithm when
+    invoked using the three argument form.
+
+>>> pow.__doc__
+'Equivalent to x**y (with two arguments) or x**y % z (with three arguments)\n\nSome types, such as ints, are able to use a more efficient algorithm when\ninvoked using the three argument form.'
+>>> 
+>>> 2**3%5
+3
+>>> pow(2,3,5)
+3
+>>> 
+>>> #logical optr ==,!=,>,<,>=,<=,and,or,in,not in,is,is not,not
+>>> pow
+<built-in function pow>
+>>> #pow
+>>> 
+>>> 1==2
+False
+>>> 'a'=='b'
+False
+>>> 'a'.__eq__('b')
+False
+>>> 'a' is 'b'
+False
+>>> 
+>>> 1!=2
+True
+>>> 1 is not 2
+True
+>>> 'a'.__ne__('b')
+True
+>>> a
+12
+>>> b
+345
+>>> a>b
+False
+>>> a.__gt__(b)
+False
+>>> a.__lt__(b)
+True
+>>> a.__ge__(b)
+False
+>>> a.__le__(b)
+True
+>>> 
+>>> 'a' in 'abcde'
+True
+>>> 'abc' in'abcde'
+True
+>>> 'abdc' in'abcde'
+False
+>>> 'abdc' not in'abcde'
+True
+>>> 
+>>> 'a' in 'abcde' and 'abdc' in'abcde'
+False
+>>> 'a' in 'abcde' or 'abdc' in'abcde'
+True
+>>> 
+>>> 
+>>> 5 and 6
+6
+>>> 0 and 6
+0
+>>> 7 and 0
+0
+>>> 5 or 6
+5
+>>> 0 or 6
+6
+>>> #bitwise optr
+>>> #&,|,^,>>,<<,~
+>>> 5&6
+4
+>>> 5|6
+7
+>>> 5^6
+3
+>>> ~123
+-124
+>>> ~11111111
+-11111112
+>>> 
+>>> ~-123
+122
+>>> ~-45678
+45677
+>>> 

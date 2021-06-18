@@ -1,0 +1,122 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> class A:
+	def __init__(s,x):
+		s.fun=x
+	def __call__(s):
+		print("in class decorator")
+		s.fun()
+		print("out of class decorator")
+
+		
+>>> def new():
+	print("in new func")
+
+	
+>>> d=A(new)
+>>> d.__dict__
+{'fun': <function new at 0x02D86540>}
+>>> d()
+in class decorator
+in new func
+out of class decorator
+>>> 
+>>> @A
+def new():
+	print("in new func")
+
+	
+>>> new()
+in class decorator
+in new func
+out of class decorator
+>>> new.__dict__
+{'fun': <function new at 0x02D90F60>}
+>>> 
+>>> class A:
+	def __init__(s,x):
+		s.fun=x
+	def __call__(s,val):
+		print("in class decorator")
+		s.fun(val)
+		print("out of class decorator")
+
+		
+>>> @A
+def new(name):
+	print("in new func")
+
+	
+>>> new('hello')
+in class decorator
+in new func
+out of class decorator
+>>> @A
+def new(name):
+	print("in new func",name)
+
+	
+>>> new('hello')
+in class decorator
+in new func hello
+out of class decorator
+>>> new('a function')
+in class decorator
+in new func a function
+out of class decorator
+>>> 
+>>> 
+>>> 
+>>> import abc
+>>> 
+>>> 
+>>> class A(abc.ABC):
+	@abc.abstractclassmethod
+	def fun(q):
+		pass
+	@abc.abstractmethod
+	def fun1(q):
+		pass
+
+	
+>>> d=A()
+Traceback (most recent call last):
+  File "<pyshell#44>", line 1, in <module>
+    d=A()
+TypeError: Can't instantiate abstract class A with abstract methods fun, fun1
+>>> class B(A):
+	pass
+
+>>> d=B()
+Traceback (most recent call last):
+  File "<pyshell#48>", line 1, in <module>
+    d=B()
+TypeError: Can't instantiate abstract class B with abstract methods fun, fun1
+>>> class B(A):
+	def fun(s):
+		print("in fun")
+	def fun1(s):
+		print("in fun1")
+	def hello(s):
+		print("in hello")
+
+		
+>>> d=B()
+>>> class B(A):
+	def fun(s):
+		print("in fun")
+	def fun2(s):
+		print("in fun1")
+	def hello(s):
+		print("in hello")
+
+		
+>>> d=B()
+Traceback (most recent call last):
+  File "<pyshell#59>", line 1, in <module>
+    d=B()
+TypeError: Can't instantiate abstract class B with abstract methods fun1
+>>> 
+>>> 
+>>> #gui tkinter
+>>> 

@@ -1,0 +1,350 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> #dict
+>>> d={'ad':123,'ab':[12,34,6,5],'ac':'%^%#','aZ':(55,65,78)}
+>>> d
+{'ad': 123, 'ab': [12, 34, 6, 5], 'ac': '%^%#', 'aZ': (55, 65, 78)}
+>>> d['ad']
+123
+>>> d['at']='hello'
+>>> d
+{'ad': 123, 'ab': [12, 34, 6, 5], 'ac': '%^%#', 'aZ': (55, 65, 78), 'at': 'hello'}
+>>> del(d['at'])
+>>> d
+{'ad': 123, 'ab': [12, 34, 6, 5], 'ac': '%^%#', 'aZ': (55, 65, 78)}
+>>> 
+>>> #genral methods of dict
+>>> len(d)
+4
+>>> d.__len__()
+4
+>>> max(d)
+'ad'
+>>> min(d)
+'aZ'
+>>> 
+>>> sorted(d)
+['aZ', 'ab', 'ac', 'ad']
+>>> 
+>>> 
+>>> d.__delitem__('aZ')
+>>> d
+{'ad': 123, 'ab': [12, 34, 6, 5], 'ac': '%^%#'}
+>>> 
+>>> #methods of dict
+>>> d.clear()
+>>> d
+{}
+>>> d={'ad': 123, 'ab': [12, 34, 6, 5], 'ac': '%^%#'}
+>>> a=d.copy()
+>>> 
+>>> 
+>>> d.fromkeys('abcde')
+{'a': None, 'b': None, 'c': None, 'd': None, 'e': None}
+>>> d.fromkeys('abcde','kuch bhi')
+{'a': 'kuch bhi', 'b': 'kuch bhi', 'c': 'kuch bhi', 'd': 'kuch bhi', 'e': 'kuch bhi'}
+>>> 
+>>> 
+>>> dict.fromkeys(range(1,6))
+{1: None, 2: None, 3: None, 4: None, 5: None}
+>>> sum({1: None, 2: None, 3: None, 4: None, 5: None})
+15
+>>> 
+>>> 
+>>> d
+{'ad': 123, 'ab': [12, 34, 6, 5], 'ac': '%^%#'}
+>>> 
+>>> 
+>>> a=[12,5,3,4,6]
+>>> 
+>>> d.fromkeys('abcde',a)
+{'a': [12, 5, 3, 4, 6], 'b': [12, 5, 3, 4, 6], 'c': [12, 5, 3, 4, 6], 'd': [12, 5, 3, 4, 6], 'e': [12, 5, 3, 4, 6]}
+>>> 
+>>> 
+>>> 
+>>> 
+>>> a
+[12, 5, 3, 4, 6]
+>>> 
+>>> 
+>>> x=d.fromkeys('abcde',a)
+>>> x
+{'a': [12, 5, 3, 4, 6], 'b': [12, 5, 3, 4, 6], 'c': [12, 5, 3, 4, 6], 'd': [12, 5, 3, 4, 6], 'e': [12, 5, 3, 4, 6]}
+>>> 
+>>> a.sort()
+>>> a
+[3, 4, 5, 6, 12]
+>>> x
+{'a': [3, 4, 5, 6, 12], 'b': [3, 4, 5, 6, 12], 'c': [3, 4, 5, 6, 12], 'd': [3, 4, 5, 6, 12], 'e': [3, 4, 5, 6, 12]}
+>>> id(a)
+42267072
+>>> id(x['a'])
+42267072
+>>> id(x['b'])
+42267072
+>>> 
+>>> x=d.fromkeys('abcde',a.copy())
+>>> 
+>>> 
+>>> d
+{'ad': 123, 'ab': [12, 34, 6, 5], 'ac': '%^%#'}
+>>> d['aa']
+Traceback (most recent call last):
+  File "<pyshell#63>", line 1, in <module>
+    d['aa']
+KeyError: 'aa'
+>>> d.get('ab')
+[12, 34, 6, 5]
+>>> d['ab']
+[12, 34, 6, 5]
+>>> d.get('aa')
+>>> d.get('aa','error')
+'error'
+>>> d.get('ab','error')
+[12, 34, 6, 5]
+>>> d.get('ab',False)
+[12, 34, 6, 5]
+>>> 
+>>> d.items()
+dict_items([('ad', 123), ('ab', [12, 34, 6, 5]), ('ac', '%^%#')])
+>>> 
+>>> 
+>>> for i in d.items():
+	print(i)
+
+	
+('ad', 123)
+('ab', [12, 34, 6, 5])
+('ac', '%^%#')
+>>> for i in d.items():
+	print(*i)
+
+	
+ad 123
+ab [12, 34, 6, 5]
+ac %^%#
+>>> 123,456
+(123, 456)
+>>> x,y=123,456
+>>> x
+123
+>>> y
+456
+>>> for i in d.items():
+	x,y=i
+	print(x,y)
+
+	
+ad 123
+ab [12, 34, 6, 5]
+ac %^%#
+>>> for i,j in d.items():
+	print(i,j)
+
+	
+ad 123
+ab [12, 34, 6, 5]
+ac %^%#
+>>> x,y=(123,456)
+>>> x
+123
+>>> x,y=[123,456]
+>>> x
+123
+>>> x=(123,456)
+>>> x
+(123, 456)
+>>> 
+>>> 
+>>> for i in enumerate('abcde'):
+	print(i)
+
+	
+(0, 'a')
+(1, 'b')
+(2, 'c')
+(3, 'd')
+(4, 'e')
+>>> for i in enumerate('abcde',100):
+	print(i)
+
+	
+(100, 'a')
+(101, 'b')
+(102, 'c')
+(103, 'd')
+(104, 'e')
+>>> for i,j in enumerate('abcde',100):
+	print(i,j)
+
+	
+100 a
+101 b
+102 c
+103 d
+104 e
+>>> for i in enumerate(d.items()):
+	print(i)
+
+	
+(0, ('ad', 123))
+(1, ('ab', [12, 34, 6, 5]))
+(2, ('ac', '%^%#'))
+>>> for i,j in enumerate(d.items()):
+	print(i,j)
+
+	
+0 ('ad', 123)
+1 ('ab', [12, 34, 6, 5])
+2 ('ac', '%^%#')
+>>> for i,j,k in enumerate(d.items()):
+	print(i,j,k)
+
+	
+Traceback (most recent call last):
+  File "<pyshell#107>", line 1, in <module>
+    for i,j,k in enumerate(d.items()):
+ValueError: not enough values to unpack (expected 3, got 2)
+>>> for i,*j in enumerate(d.items()):
+	print(i,j)
+
+	
+0 [('ad', 123)]
+1 [('ab', [12, 34, 6, 5])]
+2 [('ac', '%^%#')]
+>>> for i,(j,k) in enumerate(d.items()):
+	print(i,j,k)
+
+	
+0 ad 123
+1 ab [12, 34, 6, 5]
+2 ac %^%#
+>>> 
+>>> 
+>>> d.keys()
+dict_keys(['ad', 'ab', 'ac'])
+>>> d.pop()
+Traceback (most recent call last):
+  File "<pyshell#115>", line 1, in <module>
+    d.pop()
+TypeError: pop expected at least 1 arguments, got 0
+>>> d.pop('ad')
+123
+>>> d
+{'ab': [12, 34, 6, 5], 'ac': '%^%#'}
+>>> 
+>>> d.items()
+dict_items([('ab', [12, 34, 6, 5]), ('ac', '%^%#')])
+>>> 
+>>> 
+>>> d.popitem()
+('ac', '%^%#')
+>>> 
+>>> 
+>>> d
+{'ab': [12, 34, 6, 5]}
+>>> {'a': [3, 4, 5, 6, 12], 'b': [3, 4, 5, 6, 12], 'c': [3, 4, 5, 6, 12], 'd': [3, 4, 5, 6, 12], 'e': [3, 4, 5, 6, 12]}+d
+Traceback (most recent call last):
+  File "<pyshell#126>", line 1, in <module>
+    {'a': [3, 4, 5, 6, 12], 'b': [3, 4, 5, 6, 12], 'c': [3, 4, 5, 6, 12], 'd': [3, 4, 5, 6, 12], 'e': [3, 4, 5, 6, 12]}+d
+TypeError: unsupported operand type(s) for +: 'dict' and 'dict'
+>>> 
+>>> 
+>>> 
+>>> 
+>>> d
+{'ab': [12, 34, 6, 5]}
+>>> d.setdefault('at')
+>>> d
+{'ab': [12, 34, 6, 5], 'at': None}
+>>> d.setdefault('at',987)
+>>> d
+{'ab': [12, 34, 6, 5], 'at': None}
+>>> d.setdefault('att',987)
+987
+>>> d
+{'ab': [12, 34, 6, 5], 'at': None, 'att': 987}
+>>> d.fromkeys(['ad','at'])
+{'ad': None, 'at': None}
+>>> 
+>>> 
+>>> 
+>>> d
+{'ab': [12, 34, 6, 5], 'at': None, 'att': 987}
+>>> 
+>>> 
+>>> d.update(d.fromkeys(range(100,105),'kuch bhi'))
+>>> d
+{'ab': [12, 34, 6, 5], 'at': None, 'att': 987, 100: 'kuch bhi', 101: 'kuch bhi', 102: 'kuch bhi', 103: 'kuch bhi', 104: 'kuch bhi'}
+>>> 
+>>> 
+>>> 
+>>> d.update({'add':678,2:'hello','ad':'heloo123'})
+>>> d
+{'ab': [12, 34, 6, 5], 'at': None, 'att': 987, 100: 'kuch bhi', 101: 'kuch bhi', 102: 'kuch bhi', 103: 'kuch bhi', 104: 'kuch bhi', 'add': 678, 2: 'hello', 'ad': 'heloo123'}
+>>> d.update({'ab':678,2:'ho','ad':'h123'})
+>>> d
+{'ab': 678, 'at': None, 'att': 987, 100: 'kuch bhi', 101: 'kuch bhi', 102: 'kuch bhi', 103: 'kuch bhi', 104: 'kuch bhi', 'add': 678, 2: 'ho', 'ad': 'h123'}
+>>> d.values()
+dict_values([678, None, 987, 'kuch bhi', 'kuch bhi', 'kuch bhi', 'kuch bhi', 'kuch bhi', 678, 'ho', 'h123'])
+>>> 
+>>> 
+>>> 
+>>> d=dict(a=34,b=56,c=12,d=67,e=7)
+>>> d
+{'a': 34, 'b': 56, 'c': 12, 'd': 67, 'e': 7}
+>>> max(d)
+'e'
+>>> max(d.items())
+('e', 7)
+>>> max(d.values())
+67
+>>> max(d,key=d.get)
+'d'
+>>> min(d,key=d.get)
+'e'
+>>> sorted(d,key=d.get)
+['e', 'c', 'a', 'b', 'd']
+>>> sorted(d.items(),key=lambda i:i[1])
+[('e', 7), ('c', 12), ('a', 34), ('b', 56), ('d', 67)]
+>>> max(d.items(),key=lambda i:i[1])
+('d', 67)
+>>> 
+>>> 
+>>> 
+>>> #set
+>>> set.__doc__
+'set() -> new empty set object\nset(iterable) -> new set object\n\nBuild an unordered collection of unique elements.'
+>>> 
+>>> d={3,5,3,4,56,7,8,89,9,0,12,8,7,6,23,5,4,3,2,2,3,5,67,8,9,0}
+>>> d
+{0, 2, 3, 4, 5, 6, 7, 8, 9, 67, 12, 23, 56, 89}
+>>> d[0]
+Traceback (most recent call last):
+  File "<pyshell#176>", line 1, in <module>
+    d[0]
+TypeError: 'set' object is not subscriptable
+>>> type(d)
+<class 'set'>
+>>> len(d)
+14
+>>> max(d)
+89
+>>> d={3,5,3,4,56,7,8,89,9,0,12,8,7,6,23,25,24,13,2,2,3,5,67,8,9,0}
+>>> d
+{0, 2, 3, 4, 5, 6, 7, 8, 9, 67, 12, 13, 24, 23, 56, 89, 25}
+>>> d={3,5,3,4,56,'hello',7,8,89,9,0,12,8,7,6,23,25,24,13,2,2,3,5,67,8,9,0}
+>>> d
+{0, 2, 3, 4, 5, 'hello', 7, 8, 9, 6, 67, 12, 13, 24, 23, 56, 89, 25}
+>>> 
+>>> 
+>>> a=[(1,2,3)]
+>>> 
+>>> 
+>>> a=('a','b',[12,4,3])
+>>> a
+('a', 'b', [12, 4, 3])
+>>> a[-1].sort()
+>>> a
+('a', 'b', [3, 4, 12])
+>>> 

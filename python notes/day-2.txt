@@ -1,0 +1,214 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 29>>3
+3
+>>> 29>>6
+0
+>>> 29<<3
+232
+>>> 
+>>> a=10
+>>> b=20
+>>> 
+>>> #swapping by third var
+>>> c=a
+>>> a=b
+>>> b=c
+>>> 
+>>> a
+20
+>>> b
+10
+>>> #without third
+>>> a=a+b
+>>> b=a-b
+>>> a=a-b
+>>> 
+>>> a
+10
+>>> b
+20
+>>> 
+>>> a=a*b
+>>> b=a//b
+>>> a=a//b
+>>> 
+>>> a
+20
+>>> b
+10
+>>> a=a^b
+>>> b=a^b
+>>> a=a^b
+>>> a
+10
+>>> b
+20
+>>> 
+>>> a,b=b,a
+>>> a
+20
+>>> b
+10
+>>> b,a
+(10, 20)
+>>> x,y,z='hello',1234,456.78
+>>> x
+'hello'
+>>> y
+1234
+>>> z
+456.78
+>>> 
+>>> 
+>>> #console output
+>>> # in python 3 print is a function
+>>> print('hello')
+hello
+>>> 
+>>> 
+>>> print("hello","welcome","to",'python')
+hello welcome to python
+>>> 
+>>> print("hello","welcome","to",'python',sep='                       ')
+hello                       welcome                       to                       python
+>>> print("hello","welcome","to",'python',sep=' +++:::||++ ')
+hello +++:::||++ welcome +++:::||++ to +++:::||++ python
+>>> print 'hello'
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print('hello')?
+>>> 
+>>> 
+>>> x
+'hello'
+>>> print(x,y,z)
+hello 1234 456.78
+>>> y.__str__()
+'1234'
+>>> z.__str__()
+'456.78'
+>>> x.__str__()
+'hello'
+>>> print('hello'),print('bye')
+hello
+bye
+(None, None)
+>>> print('hello',end='  '),print('bye')
+hello  bye
+(None, None)
+>>> print('%s'%x)
+hello
+>>> print('%s %d %f'%(x,y,z))
+hello 1234 456.780000
+>>> print('%s %d %f'%(x,y,z),file=open("f:\\a.txt",'w'))
+>>> print('\\n')
+\n
+>>> print('f:\\n')
+f:\n
+>>> print('f:\\a')
+f:\a
+>>> print('f:\a')
+f:
+>>> 
+>>> 
+>>> #console input
+>>> input('enter a number')
+enter a number12
+'12'
+>>> 
+>>> int(input('enter a number'))
+enter a number12
+12
+>>> float(input('enter a number'))
+enter a number12.3
+12.3
+>>> bool(input('enter a number'))
+enter a number
+False
+>>> bool(input('enter a number'))
+enter a number   
+True
+>>> complex(input('enter a number'))
+enter a number2+3j
+(2+3j)
+>>> 
+>>> eval(input('enter a number'))
+enter a number1+2*3
+7
+>>> 
+>>> a='print("hello")'
+>>> type(a)
+<class 'str'>
+>>> print(a)
+print("hello")
+>>> 
+>>> 
+>>> eval(a)
+hello
+>>> a='input()'
+>>> print(a)
+input()
+>>> eval(a)
+123
+'123'
+>>> import webbrowser
+>>> webbrowser.get("https://www.youtube.com")
+Traceback (most recent call last):
+  File "<pyshell#93>", line 1, in <module>
+    webbrowser.get("https://www.youtube.com")
+  File "C:\Users\amit\AppData\Local\Programs\Python\Python37-32\lib\webbrowser.py", line 65, in get
+    raise Error("could not locate runnable browser")
+webbrowser.Error: could not locate runnable browser
+>>> webbrowser.open_new("https://www.youtube.com")
+True
+>>> 
+>>> 
+>>> bin(int(input('enter a number')))
+enter a number12
+'0b1100'
+>>> hex(int(input('enter a number')))
+enter a number1234
+'0x4d2'
+>>> oct(int(input('enter a number')))
+enter a number123
+'0o173'
+>>> chr(int(input('enter a number')))
+enter a number65
+'A'
+>>> ord(input('enter a number'))
+enter a numbera
+97
+>>> 
+>>> 
+>>> #cond stmnts
+>>> if 1<2:
+	print('true')
+	print("welcome")
+       else:
+	       
+SyntaxError: unindent does not match any outer indentation level
+>>> if 1<2:
+	print('true')
+	print("welcome")
+else:
+	print("false")
+	print("bye")
+
+	
+true
+welcome
+>>> if 1>2:
+	print('true')
+	print("welcome")
+else:
+	print("false")
+	print("bye")
+
+	
+false
+bye
+>>> if 1>2:
+	print('true')
+	print("welcome")
+
+	
+>>> 

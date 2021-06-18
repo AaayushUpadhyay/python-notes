@@ -1,0 +1,314 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> #polymorphism
+>>> 
+>>> 
+>>> class A:
+	def fun(s):
+		print("in fun ")
+
+		
+>>> class B(A):
+	def fun1(s):
+		print("in fun1")
+
+		
+>>> d=B()
+>>> 
+>>> 
+>>> class C:
+	x=A()
+	def fun2(s):
+		print("in fun2")
+
+		
+>>> 
+>>> B.__mro__
+(<class '__main__.B'>, <class '__main__.A'>, <class 'object'>)
+>>> C.__mro__
+(<class '__main__.C'>, <class 'object'>)
+>>> r=C()
+>>> r.x.fun()
+in fun 
+>>> 
+>>> 
+>>> #polymorphism
+>>> r+r
+Traceback (most recent call last):
+  File "<pyshell#27>", line 1, in <module>
+    r+r
+TypeError: unsupported operand type(s) for +: 'C' and 'C'
+>>> 
+>>> 
+>>> class A:
+	def __init__(s,a,b):
+		s.x=a
+		s.y=b
+	def __str__(s):
+		return '{} {}'.format(s.x,s.y)
+	def __add__(s,ot):
+		return A(s.a+ot.a,s.b+ot.b)
+	def __sub__(s,ot):
+		return A(s.a-ot.a,s.b-ot.b)
+	def __mul__(s,ot):
+		return A(s.a*ot.a,s.b*ot.b)
+	def __eq__(s,ot):
+		return s.a==ot.a and s.b==ot.b
+	def __ne__(s,ot):
+		return s.a!=ot.a and s.b!=ot.b
+	def __gt__(s,ot):
+		return s.a>ot.a and s.b>ot.b
+	def __ge__(s,ot):
+		return s.a>=ot.a and s.b>=ot.b
+	def __lt__(s,ot):
+		return s.a<ot.a and s.b<ot.b
+	def __le__(s,ot):
+		return s.a<=ot.a and s.b<=ot.b
+	def __len__(s):
+		return 4
+
+	
+>>> m=A(12,34)
+>>> n=A(2,4)
+>>> m*n
+Traceback (most recent call last):
+  File "<pyshell#44>", line 1, in <module>
+    m*n
+  File "<pyshell#41>", line 12, in __mul__
+    return A(s.a*ot.a,s.b*ot.b)
+AttributeError: 'A' object has no attribute 'a'
+>>> class A:
+	def __init__(s,a,b):
+		s.a=a
+		s.b=b
+	def __str__(s):
+		return '{} {}'.format(s.x,s.y)
+	def __add__(s,ot):
+		return A(s.a+ot.a,s.b+ot.b)
+	def __sub__(s,ot):
+		return A(s.a-ot.a,s.b-ot.b)
+	def __mul__(s,ot):
+		return A(s.a*ot.a,s.b*ot.b)
+	def __eq__(s,ot):
+		return s.a==ot.a and s.b==ot.b
+	def __ne__(s,ot):
+		return s.a!=ot.a and s.b!=ot.b
+	def __gt__(s,ot):
+		return s.a>ot.a and s.b>ot.b
+	def __ge__(s,ot):
+		return s.a>=ot.a and s.b>=ot.b
+	def __lt__(s,ot):
+		return s.a<ot.a and s.b<ot.b
+	def __le__(s,ot):
+		return s.a<=ot.a and s.b<=ot.b
+	def __len__(s):
+		return 4
+
+	
+>>> m=A(12,34)
+>>> n=A(2,4)
+>>> m*n
+<__main__.A object at 0x029734F0>
+>>> print(m*n)
+Traceback (most recent call last):
+  File "<pyshell#50>", line 1, in <module>
+    print(m*n)
+  File "<pyshell#46>", line 6, in __str__
+    return '{} {}'.format(s.x,s.y)
+AttributeError: 'A' object has no attribute 'x'
+>>> class A:
+	def __init__(s,a,b):
+		s.a=a
+		s.b=b
+	def __str__(s):
+		return '{} {}'.format(s.a,s.b)
+	def __add__(s,ot):
+		return A(s.a+ot.a,s.b+ot.b)
+	def __sub__(s,ot):
+		return A(s.a-ot.a,s.b-ot.b)
+	def __mul__(s,ot):
+		return A(s.a*ot.a,s.b*ot.b)
+	def __eq__(s,ot):
+		return s.a==ot.a and s.b==ot.b
+	def __ne__(s,ot):
+		return s.a!=ot.a and s.b!=ot.b
+	def __gt__(s,ot):
+		return s.a>ot.a and s.b>ot.b
+	def __ge__(s,ot):
+		return s.a>=ot.a and s.b>=ot.b
+	def __lt__(s,ot):
+		return s.a<ot.a and s.b<ot.b
+	def __le__(s,ot):
+		return s.a<=ot.a and s.b<=ot.b
+	def __len__(s):
+		return 4
+
+	
+>>> m=A(12,34)
+>>> n=A(2,4)
+>>> print(m*n)
+24 136
+
+>>> m*n
+<__main__.A object at 0x02962DD0>
+>>> class A:
+	def __init__(s,a,b):
+		s.a=a
+		s.b=b
+	def __repr__(s):
+		return '{} {}'.format(s.a,s.b)
+	def __add__(s,ot):
+		return A(s.a+ot.a,s.b+ot.b)
+	def __sub__(s,ot):
+		return A(s.a-ot.a,s.b-ot.b)
+	def __mul__(s,ot):
+		return A(s.a*ot.a,s.b*ot.b)
+	def __eq__(s,ot):
+		return s.a==ot.a and s.b==ot.b
+	def __ne__(s,ot):
+		return s.a!=ot.a and s.b!=ot.b
+	def __gt__(s,ot):
+		return s.a>ot.a and s.b>ot.b
+	def __ge__(s,ot):
+		return s.a>=ot.a and s.b>=ot.b
+	def __lt__(s,ot):
+		return s.a<ot.a and s.b<ot.b
+	def __le__(s,ot):
+		return s.a<=ot.a and s.b<=ot.b
+	def __len__(s):
+		return 4
+
+	
+>>> m=A(10,20)
+>>> n=A(2,4)
+>>> m*n
+20 80
+>>> m+n
+12 24
+>>> m-n
+8 16
+>>> m==n
+False
+>>> m!=n
+True
+>>> m>n
+True
+>>> m<n
+False
+>>> m>=n
+True
+>>> m<=n
+False
+>>> len(m)
+4
+>>> 1+2
+3
+>>> a=[1,2,3]
+>>> len(a)
+3
+>>> a.__len__()
+3
+>>> 
+>>> 
+>>> m=A(1,2)
+>>> m.a
+1
+>>> m.b
+2
+>>> m.c
+Traceback (most recent call last):
+  File "<pyshell#80>", line 1, in <module>
+    m.c
+AttributeError: 'A' object has no attribute 'c'
+>>> m.c=67
+>>> m.c
+67
+>>> m.__setattr__('d','python')
+>>> m.d
+'python'
+>>> m.__getattribute__('a')
+1
+>>> m.__getattribute__('d')
+'python'
+>>> 
+>>> del(m.a)
+>>> m.__dict__
+{'b': 2, 'c': 67, 'd': 'python'}
+>>> m.__delattr__('d')
+>>> m.__dict__
+{'b': 2, 'c': 67}
+>>> 
+>>> 
+>>> 
+>>> class A:
+	def __init__(s,a,b):
+		s.a=a
+		s.b=b
+	def __setattr__(s,name,val):
+		print("hello")
+
+		
+>>> d=A(12,34)
+hello
+hello
+>>> d.__dict__
+{}
+>>> class A:
+	def __init__(s,a,b):
+		s.a=a
+		s.b=b
+	def __setattr__(s,name,val):
+		print("hello")
+		super(A,s).__setattr__(name,val)
+
+		
+>>> d=A(12,34)
+hello
+hello
+>>> d.__dict__
+{'a': 12, 'b': 34}
+>>> class A:
+	def __init__(s,a,b):
+		s.a=a
+		s.b=b
+	def __setattr__(s,name,val):
+		print("hello")
+		super(A,s).__setattr__(name,val)
+	def __getattribute__(s,naam):
+		print("hello")
+
+		
+>>> d=A(12,34)
+hello
+hello
+>>> d.a
+hello
+>>> d.b
+hello
+>>> d.__dict__
+hello
+>>> class A:
+	def __init__(s,a,b):
+		s.a=a
+		s.b=b
+	def __setattr__(s,name,val):
+		print("hello")
+		super(A,s).__setattr__(name,val)
+	def __getattribute__(s,naam):
+		print("hello")
+		return super(A,s).__getattribute__(naam)
+
+	
+>>> d=A(12,34)
+hello
+hello
+>>> d.a
+hello
+12
+>>> d.b
+hello
+34
+>>> d.__dict__
+hello
+{'a': 12, 'b': 34}
+>>> 

@@ -1,0 +1,202 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> class A:
+	def fun(s):
+		print("in class A ")
+
+		
+>>> 
+>>> class B(A):
+	def fun(q):
+		print("in class B")
+
+		
+>>> 
+>>> d=B()
+>>> d.fun()
+in class B
+>>> 
+>>> 
+>>> class B(A):
+	def fun(q):
+		print("in class B")
+		super(B,q).fun()
+
+		
+>>> d=B()
+>>> d.fun()
+in class B
+in class A 
+>>> class A:
+	def fun(s):
+		print("in class A ")
+
+		
+>>> class B(A):
+	def fun(q):
+		print("in class B")
+
+		
+>>> class C(B):
+	def fun(q):
+		print("in class C")
+		super(C,q).fun()
+
+		
+>>> k=C()
+>>> k.fun()
+in class C
+in class B
+>>> C.__mro__
+(<class '__main__.C'>, <class '__main__.B'>, <class '__main__.A'>, <class 'object'>)
+>>> 
+>>> 
+>>> class A:
+	def fun(s):
+		print("in class A ")
+
+		
+>>> class A:
+	def __init__(s,a):
+		s.__a=a
+
+		
+>>> class B(A):
+	def __init__(q):
+		super(B,q).__init__()
+		print(super(B,q).__a)
+
+		
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class A:
+	def __init__(s,a):
+		s.__a=a
+
+		
+>>> class B(A):
+	def __init__(q,b):
+		super(B,q).__init__(b)
+		print(super(B,q).__a)
+
+		
+>>> d=B(123)
+Traceback (most recent call last):
+  File "<pyshell#45>", line 1, in <module>
+    d=B(123)
+  File "<pyshell#44>", line 4, in __init__
+    print(super(B,q).__a)
+AttributeError: 'super' object has no attribute '_B__a'
+>>> class B(A):
+	def __init__(q,b):
+		super(B,q).__init__(b)
+		print((super(B,q).__a))
+
+		
+>>> d=B(123)
+Traceback (most recent call last):
+  File "<pyshell#48>", line 1, in <module>
+    d=B(123)
+  File "<pyshell#47>", line 4, in __init__
+    print((super(B,q).__a))
+AttributeError: 'super' object has no attribute '_B__a'
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> #multiple inheritance
+>>> 
+>>> 
+>>> class A:
+	def fun(s):
+		print("in class A ")
+
+		
+>>> class B:
+	def fun1(q):
+		print("in class B")
+
+		
+>>> class C(A,B):
+	def fun2(q):
+		print("in class C")
+
+		
+>>> d=C()
+>>> d.fun()
+in class A 
+>>> d.fun1()
+in class B
+>>> d.fun2()
+in class C
+>>> C.__mro__
+(<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
+>>> 
+>>> 
+>>> class A:
+	def fun(s):
+		print("in class A ")
+		super(A,s).fun()
+
+		
+>>> class B:
+	def fun(q):
+		print("in class B")
+
+		
+>>> class C(A,B):
+	def fun(q):
+		print("in class C")
+		super(C,q).fun()
+
+		
+>>> d=C()
+>>> d.fun()
+in class C
+in class A 
+in class B
+>>> 
+>>> 
+>>> #composition
+>>> 
+>>> 
+>>> class A:
+	def __init__(s,a):
+		s.__a=a
+
+		
+>>> class B:
+	def __init__(q,b):
+		q.x=A(b)
+
+		
+>>> d=B(123)
+>>> d.__dict__
+{'x': <__main__.A object at 0x02F39A90>}
+>>> class B:
+	def __init__(q,b):
+		q.x=A(b)
+		print(q.x._A__a)
+
+		
+>>> d=B(123)
+123
+>>> class B:
+	def __init__(q,b):
+		q.x=A(b)
+		print(q.x.__a)
+
+>>> d=B(123)
+Traceback (most recent call last):
+  File "<pyshell#101>", line 1, in <module>
+    d=B(123)
+  File "<pyshell#100>", line 4, in __init__
+    print(q.x.__a)
+AttributeError: 'A' object has no attribute '_B__a'
+>>> 

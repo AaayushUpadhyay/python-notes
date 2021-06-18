@@ -1,0 +1,206 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> for i in range(1,6):
+	for j in range(1,i+1):
+		print('*',end='')
+	print()
+
+	
+*
+**
+***
+****
+*****
+>>> for i in range(1,6):
+	for j in range(1,i+1):
+		print(i,end='')
+	print()
+
+	
+1
+22
+333
+4444
+55555
+>>> for i in range(1,6):
+	k=i
+	for j in range(1,i+1):
+		print(k,end='')
+		k+=1
+	print()
+
+	
+1
+23
+345
+4567
+56789
+>>> for i in range(1,6):
+	for j in range(1,i+1):
+		print(i,end='')
+		i+=1
+	print()
+
+	
+1
+23
+345
+4567
+56789
+>>> for i in range(1,6):
+	k=i
+	for j in range(1,i+1):
+		print(k,end='')
+		k*=2
+	print()
+
+	
+1
+24
+3612
+481632
+510204080
+>>> for i in range(1,6):
+	k=i
+	m=4
+	for j in range(1,i+1):
+		print(k,end='')
+		k+=m
+		m-=1
+	print()
+
+	
+1
+26
+3710
+481113
+59121415
+>>> for i in range(1,6):
+	k=i
+	m=4
+	for j in range(1,i+1):
+		print(k,end='')
+		k+=5-j
+	print()
+
+	
+1
+26
+3710
+481113
+59121415
+>>> for i in range(1,6):
+	k=i
+	for j in range(1,i+1):
+		print(k,end='')
+		k+=5-j
+	print()
+
+	
+1
+26
+3710
+481113
+59121415
+>>> for i in range(1,6):
+	print('*'*i)
+else:
+	for i in range(5,0,-1):
+		print(' '*(5-i)+'*'*i)
+
+		
+*
+**
+***
+****
+*****
+*****
+ ****
+  ***
+   **
+    *
+>>> k=1
+>>> for i in range(1,6):
+	for j in range(1,i+1):
+		print(k,end='')
+		k+=1
+	print()
+
+	
+1
+23
+456
+78910
+1112131415
+>>> 1112131415
+1112131415
+>>> #list
+>>> 
+>>> a=['start',34,56,'hello','bye',True,'end']
+>>> type(a)
+<class 'list'>
+>>> a[0]
+'start'
+>>> a[-7]
+'start'
+>>> a[-1]
+'end'
+>>> a[6]
+'end'
+>>> a[3]
+'hello'
+>>> a[-4]
+'hello'
+>>> a[-3]
+'bye'
+>>> a[-8]
+Traceback (most recent call last):
+  File "<pyshell#40>", line 1, in <module>
+    a[-8]
+IndexError: list index out of range
+>>> a[7]
+Traceback (most recent call last):
+  File "<pyshell#41>", line 1, in <module>
+    a[7]
+IndexError: list index out of range
+>>> 
+>>> 
+>>> a[:]
+['start', 34, 56, 'hello', 'bye', True, 'end']
+>>> a[:3]
+['start', 34, 56]
+>>> a[3:]
+['hello', 'bye', True, 'end']
+>>> a[3:8888888]
+['hello', 'bye', True, 'end']
+>>> a[8888888:787987878787]
+[]
+>>> a[-90978967:-2]
+['start', 34, 56, 'hello', 'bye']
+>>> a[-9:-78]
+[]
+>>> a[-4:]
+['hello', 'bye', True, 'end']
+>>> a[-4:-1]
+['hello', 'bye', True]
+>>> a[-1:]
+['end']
+>>> a[::2]
+['start', 56, 'bye', 'end']
+>>> a[1::2]
+[34, 'hello', True]
+>>> a[-6::2]
+[34, 'hello', True]
+>>> a[-7::2]
+['start', 56, 'bye', 'end']
+>>> a[-100:0]
+[]
+>>> a[-100:0:2]
+[]
+>>> a[7::2]
+[]
+>>> a[-1::2]
+['end']
+>>> a[0:-1]
+['start', 34, 56, 'hello', 'bye', True]
+>>> 

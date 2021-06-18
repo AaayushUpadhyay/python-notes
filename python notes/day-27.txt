@@ -1,0 +1,238 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> from tkinter import *
+>>> a=Tk()
+>>> 
+>>> 
+>>> a=Tk(className='mygui')
+>>> a.geometry('500x700')
+''
+>>> a=Tk(className='mygui')
+>>> a.geometry('300x500')
+''
+>>> a.geometry('300x1200')
+''
+>>> a.geometry('1200x300')
+''
+>>> a=Tk(className='mygui')
+>>> a.wm_maxsize()
+(1362, 741)
+>>> a.geometry('{}x{}'.format(a.wm_maxsize()))
+Traceback (most recent call last):
+  File "<pyshell#12>", line 1, in <module>
+    a.geometry('{}x{}'.format(a.wm_maxsize()))
+IndexError: tuple index out of range
+>>> a.geometry('{}x{}'.format(*a.wm_maxsize()))
+''
+>>> 
+>>> 
+>>> a=Tk(className='mygui',bg='blue')
+Traceback (most recent call last):
+  File "<pyshell#16>", line 1, in <module>
+    a=Tk(className='mygui',bg='blue')
+TypeError: __init__() got an unexpected keyword argument 'bg'
+>>> a=Tk(className='mygui')
+>>> a.config(bg='blue')
+>>> 
+>>> 
+>>> 
+>>> 
+>>> a=Tk(className='mygui')
+>>> l=Label(a,text='hello',bg='blue',fg='yellow',font=('times',20,'bold','underline'),relief='raised',cursor='circle')
+>>> l.pack()
+>>> l.pack(side=TOP,fill=X)
+>>> l.pack(side=LEFT,fill=Y)
+>>> l.pack(fill=BOTH,expand=TRUE)
+>>> l.config(cursor='arrow')
+>>> l.config(cursor='heart')
+>>> l.destroy()
+>>> 
+>>> 
+>>> v=StringVar()
+>>> l=Label(a,textvariable=v,bg='blue',fg='yellow',font=('times',20,'bold','underline'),relief='raised',cursor='circle')
+>>> l.pack()
+>>> v.set('welcome to tkinter')
+>>> v.get()
+'welcome to tkinter'
+>>> 
+>>> 
+>>> l.destroy()
+>>> 
+>>> l=Label(a,bitmap='hourglass')
+>>> l.pack()
+>>> 
+>>> l.destroy()
+>>> 
+>>> 
+>>> img=PhotoImage(file='f:/data/python/minion.png')
+>>> l=Label(a,image=img)
+>>> l.pack()
+>>> 
+>>> l.destroy()
+
+>>> 
+>>> 
+>>> 
+>>> scr=Tk()
+>>> l=Label(scr,bg='blue',fg='yellow',font=('times',20,'bold','underline'),relief='raised',cursor='circle')
+>>> l.pack()
+>>> def fun():
+	l.config(text='button clicked',cursor='man')
+
+	
+>>> b=Button(scr,activebackground="yellow",activeforeground="white",bd=10,bg="blue",fg="yellow",relief='sunken',state='active',underline='0',text='click',font=('times',20,'italic'),command=fun)
+>>> b.pack()
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> scr=Tk()
+>>> v=IntVar()
+>>> l=Label(scr,bg='blue',fg='yellow',font=('times',20,'bold','underline'),relief='raised',cursor='circle')
+>>> l.pack()
+>>> def fun():
+	if v.get()==100:
+		l.config(text='check button checked')
+	elif v.get()==1000:
+		l.config(text='check button unchecked")
+			 
+SyntaxError: EOL while scanning string literal
+>>> def fun():
+	if v.get()==100:
+		l.config(text='check button checked')
+	elif v.get()==1000:
+		l.config(text='check button unchecked')
+
+		
+>>> c=Checkbutton(scr,onvalue=100,offvalue=1000,variable=v,command=fun)
+>>> c.pack()
+>>> c.config(text='check')
+>>> v.get()
+1000
+>>> v.set(100)
+>>> c.deselect()
+>>> c.select()
+>>> c.invoke()
+'None'
+>>> c.invoke()
+'None'
+>>> 
+>>> 
+>>> 
+>>> scr=Tk()
+>>> v=IntVar()
+>>> l=Label(scr,bg='blue',fg='yellow',font=('times',20,'bold','underline'),relief='raised',cursor='circle')
+>>> l.pack()
+>>> def fun():
+	if v.get()==10:
+		l.config(text='check button checked')
+		b.config(state='normal')
+	elif v.get()==500:
+		l.config(text='check button unchecked')
+		b.config(state='disabled')
+
+		
+>>> c=Checkbutton(scr,onvalue=10,offvalue=500,variable=v,command=fun,text='I agree')
+>>> c.pack()
+>>> b=Button(scr,text='NEXT',state='disabled')
+>>> b.pack()
+>>> b.destroy()
+>>> l.destroy()
+>>> 
+>>> 
+>>> 
+>>> scr=Tk()
+>>> l=Label(scr,bg='blue',fg='yellow',font=('times',20,'bold','underline'),relief='raised',cursor='circle')
+>>> l.pack()
+>>> d=StringVar()
+>>> def fun():
+	if d.get()=='pehla':
+		l.config(text='radio button 1 clicked')
+	elif d.get()=='dusra':
+		l.config(text='radio button 2 clicked')
+	elif d.get()=='tisra':
+		l.config(text='radio button 3 clicked')
+
+	
+>>> 
+>>> r=Radiobutton(scr,text='radio-1',value='pehla',variable=d,command=fun)
+>>> r.pack()
+>>> r1=Radiobutton(scr,text='radio-2',value='dusra',variable=d,command=fun)
+>>> r1.pack()
+>>> r2=Radiobutton(scr,text='radio-3',value='tisra',variable=d,command=fun)
+>>> r2.pack()
+>>> 
+>>> 
+>>> 
+>>> scr=Tk()
+>>> l=Label(scr,bg='blue',fg='yellow',font=('times',20,'bold','underline'),relief='raised',cursor='circle')
+>>> l.pack()
+>>> d=IntVar()
+>>> d=DoubleVar()
+>>> def fun():
+	if d.get()==1.0:
+		l.config(text='radio button 1 clicked')
+	elif d.get()==3.0:
+		l.config(text='radio button 2 clicked')
+	elif d.get()==5.0:
+		l.config(text='radio button 3 clicked')
+
+		
+>>> r=Radiobutton(scr,text='radio-1',value=1.0,variable=d,command=fun)
+>>> r.pack()
+>>> r1=Radiobutton(scr,text='radio-2',value=3.0,variable=d,command=fun)
+>>> r1.pack()
+>>> r2=Radiobutton(scr,text='radio-3',value=5.0,variable=d,command=fun)
+>>> r2.pack()
+>>> 
+>>> 
+>>> 
+>>> scr=Tk()
+>>> e=Entry(scr,font=('times',20,'bold'))
+>>> e.pack()
+>>> e.get()
+',lhxfjkghkjdsghfjkhgdfjk'
+>>> e.delete(0)
+>>> e.delete(0,END)
+>>> e.insert(0,'hello ')
+>>> e.insert(0,'monday: ')
+>>> e.insert(END,'python')
+>>> e.index(1000)
+20
+>>> e.config(show='*')
+>>> e.get()
+'monday: hello python'
+>>> e.config(show='')
+>>> 
+>>> 
+>>> 
+>>> 
+>>> scr=Tk()
+>>> v=StringVar()
+>>> e=Entry(scr,font=('times',20,'bold'),textvariable=v)
+>>> e.pack()
+>>> v.trace('w',lambda *a:v.set(v.get()[:8]))
+'15155888<lambda>'
+>>> v.get()
+';sdfkljk'
+>>> 
+>>> 
+>>> 
+>>> scr=Tk()
+>>> t=Text(scr)
+>>> t.pack()
+>>> t.get('1.0',END)
+'kkdsjlkdjhfl\n;dslklfjkljds\n;lmdklsjflgkjklgf\n;lkldsjfkljkldf\n;lskdklfmnkmk,df\n'
+>>> t.get('1.0','2.0')
+'kkdsjlkdjhfl\n'
+>>> t.delete('1.0','2.0')
+>>> t.delete('1.0',ENd)
+Traceback (most recent call last):
+  File "<pyshell#178>", line 1, in <module>
+    t.delete('1.0',ENd)
+NameError: name 'ENd' is not defined
+>>> t.delete('1.0',END)
+>>> 
+>>> 
+>>> 

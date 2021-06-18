@@ -1,0 +1,99 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> import os
+>>> 
+>>> os.chdir('f:\\')
+>>> os.cpu_count()
+4
+>>> os.curdir()
+Traceback (most recent call last):
+  File "<pyshell#4>", line 1, in <module>
+    os.curdir()
+TypeError: 'str' object is not callable
+>>> os.curdir
+'.'
+>>> os.environ()
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    os.environ()
+TypeError: '_Environ' object is not callable
+>>> os.environ
+environ({'ALLUSERSPROFILE': 'C:\\ProgramData', 'APPDATA': 'C:\\Users\\amit\\AppData\\Roaming', 'COMMONPROGRAMFILES': 'C:\\Program Files (x86)\\Common Files', 'COMMONPROGRAMFILES(X86)': 'C:\\Program Files (x86)\\Common Files', 'COMMONPROGRAMW6432': 'C:\\Program Files\\Common Files', 'COMPUTERNAME': 'PY', 'COMSPEC': 'C:\\Windows\\system32\\cmd.exe', 'FP_NO_HOST_CHECK': 'NO', 'HOME': 'C:\\Users\\amit', 'HOMEDRIVE': 'C:', 'HOMEPATH': '\\Users\\amit', 'LOCALAPPDATA': 'C:\\Users\\amit\\AppData\\Local', 'LOGONSERVER': '\\\\PY', 'NUMBER_OF_PROCESSORS': '4', 'OS': 'Windows_NT', 'PATH': 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files (x86)\\CodeBlocks\\MinGW\\bin;C:\\Users\\amit\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\amit\\AppData\\Local\\Programs\\Python\\Python37-32;C:\\Users\\amit\\AppData\\Local\\Programs\\Python\\Python37-32\\scripts;C:\\Users\\amit\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\site-packages\\pywin32_system32;C:\\Users\\amit\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\site-packages\\pywin32_system32', 'PATHEXT': '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC', 'PROCESSOR_ARCHITECTURE': 'x86', 'PROCESSOR_ARCHITEW6432': 'AMD64', 'PROCESSOR_IDENTIFIER': 'Intel64 Family 6 Model 37 Stepping 5, GenuineIntel', 'PROCESSOR_LEVEL': '6', 'PROCESSOR_REVISION': '2505', 'PROGRAMDATA': 'C:\\ProgramData', 'PROGRAMFILES': 'C:\\Program Files (x86)', 'PROGRAMFILES(X86)': 'C:\\Program Files (x86)', 'PROGRAMW6432': 'C:\\Program Files', 'PSMODULEPATH': 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\', 'PUBLIC': 'C:\\Users\\Public', 'PYCHARM COMMUNITY EDITION': 'C:\\Program Files\\JetBrains\\PyCharm Community Edition 2019.1.3\\bin;', 'SESSIONNAME': 'Console', 'SYSTEMDRIVE': 'C:', 'SYSTEMROOT': 'C:\\Windows', 'TEMP': 'C:\\Users\\amit\\AppData\\Local\\Temp', 'TESSERACT': 'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe', 'TMP': 'C:\\Users\\amit\\AppData\\Local\\Temp', 'USERDOMAIN': 'py', 'USERDOMAIN_ROAMINGPROFILE': 'py', 'USERNAME': 'amit', 'USERPROFILE': 'C:\\Users\\amit', 'VS120COMNTOOLS': 'C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\Common7\\Tools\\', 'VS140COMNTOOLS': 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\', 'WINDIR': 'C:\\Windows'})
+>>> os.getcwd()
+'f:\\'
+>>> os.getcwdb()
+
+Warning (from warnings module):
+  File "__main__", line 1
+DeprecationWarning: The Windows bytes API has been deprecated, use Unicode filenames instead
+b'f:\\'
+>>> os.getenv('path')
+'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files (x86)\\CodeBlocks\\MinGW\\bin;C:\\Users\\amit\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\amit\\AppData\\Local\\Programs\\Python\\Python37-32;C:\\Users\\amit\\AppData\\Local\\Programs\\Python\\Python37-32\\scripts;C:\\Users\\amit\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\site-packages\\pywin32_system32;C:\\Users\\amit\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\site-packages\\pywin32_system32'
+>>> os.getlogin()
+'amit'
+>>> os.getpid()
+6860
+>>> os.getppid()
+6852
+>>> os.kill(6860)
+Traceback (most recent call last):
+  File "<pyshell#14>", line 1, in <module>
+    os.kill(6860)
+TypeError: kill() takes exactly 2 arguments (1 given)
+>>> os.kill(6860,True)
+
+=============================== RESTART: Shell ===============================
+>>> import os
+>>> os.getpid()
+6096
+>>> os.getppid()
+6852
+>>> os.listdir()
+['a.py', 'a1.py', 'ad.py', 'apnamod.py', 'b.py', 'calculator.py', 'chromedriver-Darwin', 'chromedriver-Linux32', 'chromedriver-Linux64', 'chromedriver-Windows', 'debug.log', 'DLLs', 'Doc', 'etc', 'include', 'Lib', 'libs', 'LICENSE.txt', 'moda.py', 'mymod.py', 'NEWS.txt', 'python.exe', 'python3.dll', 'python37.dll', 'pythonw.exe', 'Scripts', 'share', 'tcl', 'Tools', 'vcruntime140.dll', '__pycache__']
+>>> os.makedirs('new')
+>>> os.chdir('f:\\')
+>>> os.makedirs('new')
+>>> os.mkdir('new2')
+>>> os.name
+'nt'
+>>> os.path.abspath('robo2.0.mkv')
+'f:\\robo2.0.mkv'
+>>> os.path.basename('f:\\robo2.0.mkv')
+'robo2.0.mkv'
+>>> os.path.dirname('f:\\robo2.0.mkv')
+'f:\\'
+>>> os.path.exists('f:\\robo2.0.mkv')
+False
+>>> os.path.join('f:\\robo','music')
+'f:\\robo\\music'
+>>> os.listdir()
+['$RECYCLE.BIN', 'a.db', 'data', 'download', 'email.csv', 'Emotion_Recognition', 'john wick', 'movies', 'mycar.jpg', 'nayamod.py', 'new', 'new2', 'newdata.db', 'racecar.png', 'softwares', 'System Volume Information', '__pycache__']
+>>> os.remove('new2')
+Traceback (most recent call last):
+  File "<pyshell#31>", line 1, in <module>
+    os.remove('new2')
+PermissionError: [WinError 5] Access is denied: 'new2'
+>>> os.remove('nayamod.py')
+>>> os.listdir()
+['$RECYCLE.BIN', 'a.db', 'data', 'download', 'email.csv', 'Emotion_Recognition', 'john wick', 'movies', 'mycar.jpg', 'new', 'new2', 'newdata.db', 'racecar.png', 'softwares', 'System Volume Information', '__pycache__']
+>>> os.removedirs('new')
+>>> os.listdir()
+['$RECYCLE.BIN', 'a.db', 'data', 'download', 'email.csv', 'Emotion_Recognition', 'john wick', 'movies', 'mycar.jpg', 'new2', 'newdata.db', 'racecar.png', 'softwares', 'System Volume Information', '__pycache__']
+>>> os.rename('mycar.jpg','meracar.txt')
+>>> os.rmdir('new2')
+>>> os.replace('a.txt','b.txt')
+>>> os.scandir()
+<nt.ScandirIterator object at 0x03100A80>
+>>> list(os.scandir())
+[<DirEntry '$RECYCLE.BIN'>, <DirEntry 'a.db'>, <DirEntry 'b.txt'>, <DirEntry 'data'>, <DirEntry 'download'>, <DirEntry 'email.csv'>, <DirEntry 'Emotion_Recognition'>, <DirEntry 'john wick'>, <DirEntry 'movies'>, <DirEntry 'newdata.db'>, <DirEntry 'racecar.png'>, <DirEntry 'softwares'>, <DirEntry 'System Volume Information'>, <DirEntry '__pycache__'>]
+>>> 
+>>> os.system('shutdown -s')
+0
+>>> os.system('shutdown -a')
+0
+>>> os.system('calc.exe')
+-1073741510
+>>> 
+>>> 
+>>> import sys
+>>> 

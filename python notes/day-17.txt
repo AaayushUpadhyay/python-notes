@@ -1,0 +1,280 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+>>> 
+>>> def fun():
+	return 'python'
+	return 'welcome'
+	return 'hello'
+
+>>> fun()
+'python'
+>>> 
+>>> def fun():
+	yield 'python'
+	yield 'welcome'
+	yield 'hello'
+
+	
+>>> x=fun()
+>>> x
+<generator object fun at 0x02AEBC30>
+>>> next(x)
+'python'
+>>> next(x)
+'welcome'
+>>> x.__next__()
+'hello'
+>>> next(x)
+Traceback (most recent call last):
+  File "<pyshell#14>", line 1, in <module>
+    next(x)
+StopIteration
+>>> 
+>>> 
+>>> list(fun())
+['python', 'welcome', 'hello']
+>>> tuple(fun())
+('python', 'welcome', 'hello')
+>>> set(fun())
+{'python', 'hello', 'welcome'}
+>>> x=fun()
+>>> list(x)
+['python', 'welcome', 'hello']
+>>> 
+>>> x=fun()
+>>> next(x)
+'python'
+>>> del(x)
+>>> x=(i for i in "hello")
+>>> x
+<generator object <genexpr> at 0x02AEBC30>
+>>> 
+>>> 
+>>> def fun(n):
+	if n==1:
+		return 1
+	return n*fun(n-1)
+
+>>> a=[8,12,3,4,6,7,5,8,7,9,8,13,16,18,19]
+>>> 
+>>> [fun(i) for i in a]
+[40320, 479001600, 6, 24, 720, 5040, 120, 40320, 5040, 362880, 40320, 6227020800, 20922789888000, 6402373705728000, 121645100408832000]
+>>> 
+>>> 
+>>> x=map(fun,a)
+>>> next(x)
+40320
+>>> del(x)
+>>> x=(fun(i) for i in a)
+>>> 
+>>> m=[40320, 479001600, 6, 24, 720, 5040, 120, 40320, 5040, 362880, 40320, 622,7020,800, 209,227898,88000, 640,2373,70572,8000, 121645,10040883,2000]
+>>> 
+>>> 
+>>> list(map(lambda x,y:(x+y,x/y,x-y),a,m))
+[(40328, 0.0001984126984126984, -40312), (479001612, 2.505210838544172e-08, -479001588), (9, 0.5, -3), (28, 0.16666666666666666, -20), (726, 0.008333333333333333, -714), (5047, 0.001388888888888889, -5033), (125, 0.041666666666666664, -115), (40328, 0.0001984126984126984, -40312), (5047, 0.001388888888888889, -5033), (362889, 2.48015873015873e-05, -362871), (40328, 0.0001984126984126984, -40312), (635, 0.02090032154340836, -609), (7036, 0.002279202279202279, -7004), (818, 0.0225, -782), (228, 0.09090909090909091, -190)]
+>>> len([(40328, 0.0001984126984126984, -40312), (479001612, 2.505210838544172e-08, -479001588), (9, 0.5, -3), (28, 0.16666666666666666, -20), (726, 0.008333333333333333, -714), (5047, 0.001388888888888889, -5033), (125, 0.041666666666666664, -115), (40328, 0.0001984126984126984, -40312), (5047, 0.001388888888888889, -5033), (362889, 2.48015873015873e-05, -362871), (40328, 0.0001984126984126984, -40312), (635, 0.02090032154340836, -609), (7036, 0.002279202279202279, -7004), (818, 0.0225, -782), (228, 0.09090909090909091, -190)])
+15
+>>> len(a)
+15
+>>> len(m)
+24
+>>> list(map(lambda x,y:(x+y,x/y,x-y),m,a))
+[(40328, 5040.0, 40312), (479001612, 39916800.0, 479001588), (9, 2.0, 3), (28, 6.0, 20), (726, 120.0, 714), (5047, 720.0, 5033), (125, 24.0, 115), (40328, 5040.0, 40312), (5047, 720.0, 5033), (362889, 40320.0, 362871), (40328, 5040.0, 40312), (635, 47.84615384615385, 609), (7036, 438.75, 7004), (818, 44.44444444444444, 782), (228, 11.0, 190)]
+>>> len([(40328, 5040.0, 40312), (479001612, 39916800.0, 479001588), (9, 2.0, 3), (28, 6.0, 20), (726, 120.0, 714), (5047, 720.0, 5033), (125, 24.0, 115), (40328, 5040.0, 40312), (5047, 720.0, 5033), (362889, 40320.0, 362871), (40328, 5040.0, 40312), (635, 47.84615384615385, 609), (7036, 438.75, 7004), (818, 44.44444444444444, 782), (228, 11.0, 190)])
+15
+>>> 
+>>> 
+>>> list(map(int,input().split()))
+12 34 56 78 90
+[12, 34, 56, 78, 90]
+>>> 
+>>> 
+>>> def fun(n):
+	return n%2==0
+
+>>> x=filter(fun,a)
+>>> next(x)
+8
+>>> a
+[8, 12, 3, 4, 6, 7, 5, 8, 7, 9, 8, 13, 16, 18, 19]
+>>> next(x)
+12
+>>> next(x)
+4
+>>> list(x)
+[6, 8, 8, 16, 18]
+>>> list(filter(fun,a))
+[8, 12, 4, 6, 8, 8, 16, 18]
+>>> 
+>>> 
+>>> from functools import reduce
+>>> reduce.__doc__
+'reduce(function, sequence[, initial]) -> value\n\nApply a function of two arguments cumulatively to the items of a sequence,\nfrom left to right, so as to reduce the sequence to a single value.\nFor example, reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) calculates\n((((1+2)+3)+4)+5).  If initial is present, it is placed before the items\nof the sequence in the calculation, and serves as a default when the\nsequence is empty.'
+>>> def fun(x,y):
+	return x*y
+
+>>> reduce(fun,range(1,6))
+120
+>>> def fun(x,y):
+	return x*y,x+y
+
+>>> reduce(fun,range(1,6))
+Traceback (most recent call last):
+  File "<pyshell#81>", line 1, in <module>
+    reduce(fun,range(1,6))
+  File "<pyshell#80>", line 2, in fun
+    return x*y,x+y
+TypeError: can only concatenate tuple (not "int") to tuple
+>>> 
+>>> 
+>>> def fun(n):
+	x=[reduce(lambda a,b:a*b),range(1,i+1)) for i in range(1,n+1) if reduce(lambda a,b:a*b),range(1,i+1))<=n]
+	
+SyntaxError: invalid syntax
+>>> def fun(n):
+	x=[reduce(lambda a,b:a*b,range(1,i+1)) for i in range(1,n+1) if reduce(lambda a,b:a*b,range(1,i+1))<=n]
+	return x
+
+>>> fun(12)
+[1, 2, 6]
+>>> fun(24)
+[1, 2, 6, 24]
+>>> def fun(n):
+	x=[reduce(lambda a,b:a*b,range(1,i+1)) for i in range(1,n+1) if reduce(lambda a,b:a*b,range(1,i+1))<=n]
+	return n in x
+
+>>> fun(12)
+False
+>>> fun(24)
+True
+>>> list(filter(fun,range(1,1000)))
+Traceback (most recent call last):
+  File "<pyshell#95>", line 1, in <module>
+    list(filter(fun,range(1,1000)))
+  File "<pyshell#92>", line 2, in fun
+    x=[reduce(lambda a,b:a*b,range(1,i+1)) for i in range(1,n+1) if reduce(lambda a,b:a*b,range(1,i+1))<=n]
+  File "<pyshell#92>", line 2, in <listcomp>
+    x=[reduce(lambda a,b:a*b,range(1,i+1)) for i in range(1,n+1) if reduce(lambda a,b:a*b,range(1,i+1))<=n]
+  File "<pyshell#92>", line 2, in <lambda>
+    x=[reduce(lambda a,b:a*b,range(1,i+1)) for i in range(1,n+1) if reduce(lambda a,b:a*b,range(1,i+1))<=n]
+KeyboardInterrupt
+>>> list(filter(fun,range(1,10)))
+[1, 2, 6]
+>>> list(filter(fun,range(1,100)))
+[1, 2, 6, 24]
+>>> list(filter(fun,range(1,150)))
+[1, 2, 6, 24, 120]
+>>> 
+>>> 
+>>> 
+>>> a
+[8, 12, 3, 4, 6, 7, 5, 8, 7, 9, 8, 13, 16, 18, 19]
+>>> 
+>>> 
+>>> x=ite(a)
+Traceback (most recent call last):
+  File "<pyshell#105>", line 1, in <module>
+    x=ite(a)
+NameError: name 'ite' is not defined
+>>> x=iter(a)
+>>> 
+>>> next(x)
+8
+>>> next(x)
+12
+>>> next(x)
+3
+>>> x
+<list_iterator object at 0x02B33C50>
+>>> a
+[8, 12, 3, 4, 6, 7, 5, 8, 7, 9, 8, 13, 16, 18, 19]
+>>> a=(8, 12, 3, 4, 6, 7, 5, 8, 7, 9, 8, 13, 16, 18, 19)
+>>> x=iter(a)
+>>> x
+<tuple_iterator object at 0x02B33E30>
+>>> x=iter("hello")
+>>> x
+<str_iterator object at 0x02B33C50>
+>>> x=iter({1,2,3,45})
+>>> x
+<set_iterator object at 0x02701238>
+>>> x=iter(map(int,input().split()))
+1 2 3 4 5 6
+>>> x
+<map object at 0x02B33E30>
+>>> next(x)
+1
+>>> next(x)
+2
+>>> next(x)
+3
+>>> next(x)
+4
+>>> next(x)
+5
+>>> next(x)
+6
+>>> next(x)
+Traceback (most recent call last):
+  File "<pyshell#128>", line 1, in <module>
+    next(x)
+StopIteration
+>>> a
+(8, 12, 3, 4, 6, 7, 5, 8, 7, 9, 8, 13, 16, 18, 19)
+>>> 
+>>> 
+>>> a=123
+>>> def fun():
+	print(a)
+
+	
+>>> fun()
+123
+>>> def fun():
+	a+=1
+	print(a)
+
+	
+>>> fun()
+Traceback (most recent call last):
+  File "<pyshell#139>", line 1, in <module>
+    fun()
+  File "<pyshell#138>", line 2, in fun
+    a+=1
+UnboundLocalError: local variable 'a' referenced before assignment
+>>> def fun():
+	global a
+	a+=1
+	print(a)
+
+	
+>>> a
+123
+>>> fun()
+124
+>>> a
+124
+>>> def fun():
+	b='hello'
+	print(b)
+
+	
+>>> fun()
+hello
+>>> b
+Traceback (most recent call last):
+  File "<pyshell#150>", line 1, in <module>
+    b
+NameError: name 'b' is not defined
+>>> def fun():
+	global b
+	b='hello'
+	print(b)
+
+	
+>>> fun()
+hello
+>>> b
+'hello'
+>>> 

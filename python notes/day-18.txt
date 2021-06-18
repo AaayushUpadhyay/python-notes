@@ -1,0 +1,166 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> def fun():
+	def fun1():
+		print("in fun1")
+	print("in fun")
+	fun1()
+
+	
+>>> fun()
+in fun
+in fun1
+>>> 
+>>> 
+>>> def fun():
+	print("in fun")
+	def fun1():
+		print("in fun1")
+		def fun2():
+			print("in fun2")
+			def fun3():
+				print("in fun3")
+			fun3()
+		fun2()
+	fun1()
+
+	
+>>> fun()
+in fun
+in fun1
+in fun2
+in fun3
+>>> def fun():
+	print("in fun")
+	def fun1():
+		print("in fun1")
+		def fun2():
+			print("in fun2")
+			def fun3():
+				print("in fun3")
+			return fun3
+		return fun2
+	return fun1
+
+>>> fun()
+in fun
+<function fun.<locals>.fun1 at 0x03101780>
+>>> fun()()
+in fun
+in fun1
+<function fun.<locals>.fun1.<locals>.fun2 at 0x03140FA8>
+>>> fun()()()
+in fun
+in fun1
+in fun2
+<function fun.<locals>.fun1.<locals>.fun2.<locals>.fun3 at 0x03101780>
+>>> fun()()()()
+in fun
+in fun1
+in fun2
+in fun3
+>>> 
+>>> 
+>>> def fun(x):
+	x()
+	print("in fun")
+
+	
+>>> def hello():
+	print("in hello func")
+
+	
+>>> fun(hello)
+in hello func
+in fun
+>>> @fun
+def hello():
+	print("in hello func")
+
+	
+in hello func
+in fun
+>>> @fun
+78
+SyntaxError: invalid syntax
+>>> 
+>>> 
+>>> 
+=============================== RESTART: Shell ===============================
+>>> def fun(x):
+	x()
+	print("in fun")
+
+	
+>>> @fun
+def hello():
+	print("in hello func")
+
+	
+in hello func
+in fun
+>>> hello()
+Traceback (most recent call last):
+  File "<pyshell#47>", line 1, in <module>
+    hello()
+TypeError: 'NoneType' object is not callable
+>>> def fun(myfun):
+	n=int(input("enter a number"))
+	x=myfun(n)
+	if x[0]==n:
+		print("its a ",x[1])
+	elsE:
+		
+SyntaxError: invalid syntax
+>>> def fun(myfun):
+	n=int(input("enter a number"))
+	x=myfun(n)
+	if x[0]==n:
+		print("its a ",x[1])
+	else:
+		print("its not a ",x[1])
+
+		
+>>> @fun
+def arm(n):
+	return sum([int(i)**len(str(n)) for i in str(n)]),'armstrong'
+
+enter a number153
+its a  armstrong
+>>> @fun
+def pallin(n):
+	return int(str(n)[::-1]),'pallindrome'
+
+enter a number121
+its a  pallindrome
+>>> #modular programming
+>>> 
+>>> import string
+>>> string.ascii_letters
+'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+>>> 
+>>> import string as s
+>>> s.ascii_lowercase
+'abcdefghijklmnopqrstuvwxyz'
+>>> s.ascii_uppercase
+'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+>>> 
+>>> from string import digits
+>>> digits
+'0123456789'
+>>> from string import digits as d
+>>> d
+'0123456789'
+>>> 
+>>> from string import digits,hexdigits,octdigits
+>>> hexdigits
+'0123456789abcdefABCDEF'
+>>> octdigits
+'01234567'
+>>> digits
+'0123456789'
+>>> 
+>>> from string import *
+>>> printable
+'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'
+>>> 

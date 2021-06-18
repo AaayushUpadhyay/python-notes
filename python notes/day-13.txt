@@ -1,0 +1,295 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> a='abcde'
+>>> a.isalnum()
+True
+>>> a='abcde123'
+>>> a.isalnum()
+True
+>>> a='123'
+>>> a.isalnum()
+True
+>>> a='123.'
+>>> a.isalnum()
+False
+>>> 
+>>> a='abcde'
+>>> a.isalpha()
+True
+>>> a='abcde123'
+>>> a.isalpha()
+False
+>>> 
+>>> 
+>>> 
+>>> a.isascii()
+True
+>>> a='\u00B2'
+>>> a.isascii()
+False
+>>> a
+'²'
+>>> 
+>>> a='1234'
+>>> a.isdecimal()
+True
+>>> a.isdigit()
+True
+>>> a.isnumeric()
+True
+>>> 
+>>> 
+>>> a='\u00B2'
+>>> a
+'²'
+>>> a.isdecimal()
+False
+>>> a.isdigit()
+True
+>>> a.isnumeric()
+True
+>>> 
+>>> 
+>>> a='\u00BC'
+>>> a
+'¼'
+>>> a.isdecimal()
+False
+>>> a.isdigit()
+False
+>>> a.isnumeric()
+True
+>>> a='123.4'
+>>> a.isdecimal()
+False
+>>> 
+>>> a='fghsdg'
+>>> a.isidentifier()
+True
+>>> a='1fghsdg'
+>>> a.isidentifier()
+False
+>>> a='_1fghsdg'
+>>> a.isidentifier()
+True
+>>> a='$1fghsdg'
+>>> a.isidentifier()
+False
+>>> 
+>>> a.islower()
+True
+>>> a='$7567352'
+>>> a.islower()
+False
+>>> a='$7Ufhgfghf'
+>>> a.islower()
+False
+>>> a='\n'
+>>> a.isprintable()
+False
+>>> a='\\n'
+>>> a.isprintable()
+True
+>>> print('\\n')
+\n
+>>> print('\n')
+
+
+>>> 
+>>> a='JGHJGJG9887'
+>>> a.isupper()
+True
+>>> a='JGHJHghjghjgJG9887'
+>>> a.isupper()
+False
+>>> a='The Hindu'
+>>> a.istitle()
+True
+>>> 
+>>> a='   ab'
+>>> a.isspace()
+False
+>>> a='   \t\n'
+>>> a.isspace()
+True
+>>> a='      '
+>>> a.isspace()
+True
+>>> 
+>>> ','.join('12345678')
+'1,2,3,4,5,6,7,8'
+>>> a=['hello','welcome','to','python']
+>>> ''.join(a)
+'hellowelcometopython'
+>>> ' '.join(a)
+'hello welcome to python'
+>>> 
+>>> a='abcdef'
+>>> a.ljust(50)
+'abcdef                                            '
+>>> a.ljust(50,'!')
+'abcdef!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+>>> 
+>>> 'KLJKLHJKDHG'.lower()
+'kljklhjkdhg'
+>>> 
+>>> 
+>>> a='abacaaabacacacabacabaca123456aabababcacacababababcacaca'
+>>> a.lstrip('a')
+'bacaaabacacacabacabaca123456aabababcacacababababcacaca'
+>>> a.lstrip('ba')
+'caaabacacacabacabaca123456aabababcacacababababcacaca'
+>>> a
+'abacaaabacacacabacabaca123456aabababcacacababababcacaca'
+>>> 
+>>> 
+>>> a.lstrip('ba')
+'caaabacacacabacabaca123456aabababcacacababababcacaca'
+>>> a.lstrip('bac')
+'123456aabababcacacababababcacaca'
+>>> a.lstrip('dac')
+'bacaaabacacacabacabaca123456aabababcacacababababcacaca'
+>>> a.lstrip('dacb')
+'123456aabababcacacababababcacaca'
+>>> a.rstrip('dacb')
+'abacaaabacacacabacabaca123456'
+>>> 
+>>> 
+>>> a.strip('dacb')
+'123456'
+>>> 
+>>> 
+>>> a='abcd1mnop1tuv'
+>>> a.partition('1')
+('abcd', '1', 'mnop1tuv')
+>>> a.partition('12')
+('abcd1mnop1tuv', '', '')
+>>> a.rpartition('1')
+('abcd1mnop', '1', 'tuv')
+>>> a.replace('1',"7865465456454')
+	  
+SyntaxError: EOL while scanning string literal
+>>> a.replace('1',"7865465456454")
+'abcd7865465456454mnop7865465456454tuv'
+>>> 'abcd7865465456454mnop7865465456454tuv'.replace("7865465456454",'z')
+'abcdzmnopztuv'
+>>> a
+'abcd1mnop1tuv'
+>>> 
+>>> 
+>>> a.find('1')
+4
+>>> a.rfind('1')
+9
+>>> 
+>>> a.index('1')
+4
+>>> a.rindex('1')
+9
+>>> a.find('11')
+-1
+>>> a.rfind('11')
+-1
+>>> a.index('11')
+Traceback (most recent call last):
+  File "<pyshell#122>", line 1, in <module>
+    a.index('11')
+ValueError: substring not found
+>>> a.rindex('11')
+Traceback (most recent call last):
+  File "<pyshell#123>", line 1, in <module>
+    a.rindex('11')
+ValueError: substring not found
+>>> 
+>>> 
+>>> 
+>>> a.rjust(50)
+'                                     abcd1mnop1tuv'
+>>> a.rjust(50,+')
+	
+SyntaxError: EOL while scanning string literal
+>>> a.rjust(50,'+')
+'+++++++++++++++++++++++++++++++++++++abcd1mnop1tuv'
+>>> a.rjust(5,+')
+	
+SyntaxError: EOL while scanning string literal
+>>> a.rjust(5,'+')
+'abcd1mnop1tuv'
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> a='12 34 56 78\n90'
+>>> a.split()
+['12', '34', '56', '78', '90']
+>>> a.rsplit()
+['12', '34', '56', '78', '90']
+>>> 
+>>> 
+>>> a='123ab4567ab5321ab98787ab867'
+>>> a.split()
+['123ab4567ab5321ab98787ab867']
+>>> a.split('ab')
+['123', '4567', '5321', '98787', '867']
+>>> a.rsplit('ab')
+['123', '4567', '5321', '98787', '867']
+>>> 
+>>> 
+>>> a.partition('ab')
+('123', 'ab', '4567ab5321ab98787ab867')
+>>> 
+>>> 
+>>> a.split('ab',n=2)
+Traceback (most recent call last):
+  File "<pyshell#151>", line 1, in <module>
+    a.split('ab',n=2)
+TypeError: 'n' is an invalid keyword argument for split()
+>>> a.split.__doc__
+'Return a list of the words in the string, using sep as the delimiter string.\n\n  sep\n    The delimiter according which to split the string.\n    None (the default value) means split according to any whitespace,\n    and discard empty strings from the result.\n  maxsplit\n    Maximum number of splits to do.\n    -1 (the default value) means no limit.'
+>>> help(a.split)
+
+>>> a.split('ab',maxsplit=2)
+['123', '4567', '5321ab98787ab867']
+>>> a.rsplit('ab',maxsplit=2)
+['123ab4567ab5321', '98787', '867']
+>>> a.split('ab',maxsplit=1)
+['123', '4567ab5321ab98787ab867']
+>>> 
+>>> 
+>>> 
+>>> 
+>>> a='this is
+SyntaxError: EOL while scanning string literal
+>>> a='''this
+is
+a
+multiline
+string'''
+>>> a.splitlines()
+['this', 'is', 'a', 'multiline', 'string']
+>>> a='''this was or
+is
+a
+multiline
+string'''
+>>> a.splitlines()
+['this was or', 'is', 'a', 'multiline', 'string']
+>>> a.split()
+['this', 'was', 'or', 'is', 'a', 'multiline', 'string']
+>>> 
+>>> a.split('\n')
+['this was or', 'is', 'a', 'multiline', 'string']
+>>> 
+>>> 
+>>> a='abcdeamnop'
+>>> a.startswith('a')
+True
+>>> a.startswith('a',1)
+False
+>>> a.startswith('a',5)
+True
+>>> a='GHFGHFjjjhghj'
+>>> a.swapcase()
+'ghfghfJJJHGHJ'
+>>> 

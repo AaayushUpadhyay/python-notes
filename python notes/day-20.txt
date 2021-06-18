@@ -1,0 +1,144 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> a=open(r'f:\nayamod.py')
+>>> a.name
+'f:\\nayamod.py'
+>>> a.mode
+'r'
+>>> a.encoding
+'cp1252'
+>>> a.readable()
+True
+>>> a.writable()
+False
+>>> a.seekable()
+True
+>>> a.tell()
+0
+>>> a.read()
+'def arm(n):\n    return sum([int(i)**len(str(n)) for i in str(n)])==n\n\ndef pallin(n):\n    return str(n)==str(n)[::-1]\n'
+>>> a.read()
+''
+>>> a.tell()
+122
+>>> a.seek(0)
+0
+>>> a.tell()
+0
+>>> a.read(100)
+'def arm(n):\n    return sum([int(i)**len(str(n)) for i in str(n)])==n\n\ndef pallin(n):\n    return str('
+>>> a.read(100)
+'n)==str(n)[::-1]\n'
+>>> 
+>>> a.seek(0)
+0
+>>> a.readline()
+'def arm(n):\n'
+>>> a.readline()
+'    return sum([int(i)**len(str(n)) for i in str(n)])==n\n'
+>>> a.readline(3)
+'\n'
+>>> a.readline(3)
+'def'
+>>> a.readline(14)
+' pallin(n):\n'
+>>> a.seek(0)
+0
+>>> a.readline(142222)
+'def arm(n):\n'
+>>> 
+>>> 
+>>> a.readlines()
+['    return sum([int(i)**len(str(n)) for i in str(n)])==n\n', '\n', 'def pallin(n):\n', '    return str(n)==str(n)[::-1]\n']
+>>> a.close()
+>>> 
+>>> 
+>>> a=open(r'f:\nayamod.py','w')
+>>> a.name
+'f:\\nayamod.py'
+>>> a.mode
+'w'
+>>> a.encoding
+'cp1252'
+>>> a.readable()
+False
+>>> a.writable()
+True
+>>> a.seekable()
+True
+>>> 
+>>> a.write('def arm(n):\n    return sum([int(i)**len(str(n)) for i in str(n)])==n\n\ndef pallin(n):\n    return str(n)==str(n)[::-1]\n')
+117
+>>> a.tell()
+122
+>>> len('def arm(n):\n    return sum([int(i)**len(str(n)) for i in str(n)])==n\n\ndef pallin(n):\n    return str(n)==str(n)[::-1]\n')
+117
+>>> 
+>>> a.writelines(['welcome to 2019 and enoj and bask'])
+>>> 
+>>> a=open(r'f:\nayamod.py','w')
+>>> a.write('def arm(n):\n    return sum([int(i)**len(str(n)) for i in str(n)])==n\n\ndef pallin(n):\n    return str(n)==str(n)[::-1]\n')
+117
+>>> a.writelines(['welcome to 2019 and enoj and bask'])
+>>> a.tell()
+155
+>>> a.seek(135)
+135
+>>> a.write(20)
+Traceback (most recent call last):
+  File "<pyshell#49>", line 1, in <module>
+    a.write(20)
+TypeError: write() argument must be str, not int
+>>> a.write('20')
+2
+>>> a.close()
+>>> 
+>>> 
+>>> a=open(r'f:\nayamod.py','w')
+>>> a.write('def arm(n):\n    return sum([int(i)**len(str(n)) for i in str(n)])==n\n\ndef pallin(n):\n    return str(n)==str(n)[::-1]\n')
+117
+>>> a.close()
+>>> a=open(r'f:\nayamod.py','a')
+>>> a.readable()
+False
+>>> a.seekable()
+True
+>>> a.writable()
+True
+>>> 
+>>> a.tell()
+122
+>>> a.seek(0)
+0
+>>> a.tell()
+0
+>>> a.write("9327248767532")
+13
+>>> a.close()
+>>> a=open(r'f:\nayamod.py').read().replace('s','$#%')
+>>> a
+'def arm(n):\n    return $#%um([int(i)**len($#%tr(n)) for i in $#%tr(n)])==n\n\ndef pallin(n):\n    return $#%tr(n)==$#%tr(n)[::-1]\n9327248767532'
+>>> open(r'f:\nayamod.py','w').write(a)
+140
+>>> 
+>>> 
+>>> 
+>>> 
+>>> a=open(r'f:\racecar.png','rb')
+>>> b=open(r'f:\mycar.jpg','wb')
+>>> b.write(a.read())
+5586
+>>> b.close()
+>>> 
+>>> 
+>>> a.seek(0)
+0
+>>> a.read()
+
+>>> b=open(r'f:\mycar.jpg','wb')
+>>> a.seek(0)
+0
+>>> b.write(a.read().replace('$'.encode(),'@'.encode()))
+5586
+>>> b.close()
+>>> 

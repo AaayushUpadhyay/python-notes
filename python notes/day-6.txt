@@ -1,0 +1,138 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> a=['shuru',3,4,5,'hello','bye',777,'last']
+>>> a[:]
+['shuru', 3, 4, 5, 'hello', 'bye', 777, 'last']
+>>> a[3:]
+[5, 'hello', 'bye', 777, 'last']
+>>> a[-4:]
+['hello', 'bye', 777, 'last']
+>>> a[4:-4]
+[]
+>>> a[::-1]
+['last', 777, 'bye', 'hello', 5, 4, 3, 'shuru']
+>>> a[:-1]
+['shuru', 3, 4, 5, 'hello', 'bye', 777]
+>>> a[-1:]
+['last']
+>>> 
+>>> 
+>>> a[::-1]
+['last', 777, 'bye', 'hello', 5, 4, 3, 'shuru']
+>>> a[9000::-1]
+['last', 777, 'bye', 'hello', 5, 4, 3, 'shuru']
+>>> a[9000:0:-1]
+['last', 777, 'bye', 'hello', 5, 4, 3]
+>>> a[9000:-3:-1]
+['last', 777]
+>>> a[-1:4:-1]
+['last', 777, 'bye']
+>>> a[::-2]
+['last', 'bye', 5, 3]
+>>> a[-1:0:-1]
+['last', 777, 'bye', 'hello', 5, 4, 3]
+>>> 
+>>> a[-78:-1:-1]
+[]
+>>> a[7:-1:-1]
+[]
+>>> a[-9:]
+['shuru', 3, 4, 5, 'hello', 'bye', 777, 'last']
+>>> a[7:-12:-1]
+['last', 777, 'bye', 'hello', 5, 4, 3, 'shuru']
+>>> 
+>>> a[-4::-90]
+['hello']
+>>> a
+['shuru', 3, 4, 5, 'hello', 'bye', 777, 'last']
+>>> a[0:3]
+['shuru', 3, 4]
+>>> a[0:3][::-1]
+[4, 3, 'shuru']
+>>> a[0:3]=a[0:3][::-1]
+>>> a'
+SyntaxError: EOL while scanning string literal
+>>> a
+[4, 3, 'shuru', 5, 'hello', 'bye', 777, 'last']
+>>> 
+>>> 
+>>> a
+[4, 3, 'shuru', 5, 'hello', 'bye', 777, 'last']
+>>> #genral methods on data structures (list)
+>>> len(a)
+8
+>>> b=123
+>>> len(b)
+Traceback (most recent call last):
+  File "<pyshell#36>", line 1, in <module>
+    len(b)
+TypeError: object of type 'int' has no len()
+>>> a.__len__()
+8
+>>> a=[True,90,False,77,88,988767.8,9]
+>>> min(a)
+False
+>>> a=[0,True,90,False,77,88,988767.8,9]
+>>> min(a)
+0
+>>> a=[True,90,False,77,88,988767.8,9,0]
+>>> min(a)
+False
+>>> max(a)
+988767.8
+>>> sum(a)
+989032.8
+>>> sum(a,1000)
+990032.8
+>>> sorted(a)
+[False, 0, True, 9, 77, 88, 90, 988767.8]
+>>> a
+[True, 90, False, 77, 88, 988767.8, 9, 0]
+>>> sorted.__doc__
+'Return a new list containing all items from the iterable in ascending order.\n\nA custom key function can be supplied to customize the sort order, and the\nreverse flag can be set to request the result in descending order.'
+>>> sorted(a,reverse=True)
+[988767.8, 90, 88, 77, 9, True, False, 0]
+>>> 
+>>> del(b)
+>>> del(a[0])
+>>> a
+[90, False, 77, 88, 988767.8, 9, 0]
+>>> a.__delitem__(0)
+>>> a
+[False, 77, 88, 988767.8, 9, 0]
+>>> a.__delitem__(-2)
+>>> a
+[False, 77, 88, 988767.8, 0]
+>>> 
+>>> 
+>>> #methods of list
+>>> 
+>>> a.append('hello')
+>>> a
+[False, 77, 88, 988767.8, 0, 'hello']
+>>> a.append(['jdgsh','lkshdjfg'])
+>>> a
+[False, 77, 88, 988767.8, 0, 'hello', ['jdgsh', 'lkshdjfg']]
+>>> 
+>>> a.clear()
+>>> a
+[]
+>>> a=[False, 77, 88, 988767.8, 0, 'hello', ['jdgsh', 'lkshdjfg']]
+>>> del(a[:])
+>>> a
+[]
+>>> 
+>>> a=[False, 77, 88, 988767.8, 0, 'hello', ['jdgsh', 'lkshdjfg']]
+>>> b=a
+>>> del(a[:])
+>>> a
+[]
+>>> b
+[]
+>>> a=[False, 77, 88, 988767.8, 0, 'hello', ['jdgsh', 'lkshdjfg']]
+>>> b=a.copy()
+>>> id(a)
+50554280
+>>> id(b)
+46076152
+>>> 

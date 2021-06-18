@@ -1,0 +1,203 @@
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> def fun():
+	print('hello')
+
+	
+>>> fun()
+hello
+>>> fun.__module__
+'__main__'
+>>> print.__module__
+'builtins'
+>>> x=fun
+>>> x()
+hello
+>>> 
+>>> 
+>>> print.__doc__
+"print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream, or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream); defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:   string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream."
+>>> 
+>>> 
+>>> fun.__doc__
+>>> 
+>>> 
+>>> def fun():
+	'hello its a function to print hello'
+	print('hello')
+
+	
+>>> fun.__doc__
+'hello its a function to print hello'
+>>> 
+>>> 
+>>> 
+>>> def pyt():
+	print("welcome")
+
+	
+>>> pyt()
+welcome
+>>> 
+>>> 
+>>> def fun(a,b):
+	print(a+b)
+
+	
+>>> fun(12,34)
+46
+>>> fun('hello','welcome')
+hellowelcome
+>>> fun([1,2,3],list('abcde'))
+[1, 2, 3, 'a', 'b', 'c', 'd', 'e']
+>>> fun((1,2,3,4),(4,5,6,7))
+(1, 2, 3, 4, 4, 5, 6, 7)
+>>> 
+>>> fun('a',123)
+Traceback (most recent call last):
+  File "<pyshell#36>", line 1, in <module>
+    fun('a',123)
+  File "<pyshell#30>", line 2, in fun
+    print(a+b)
+TypeError: can only concatenate str (not "int") to str
+>>> 
+>>> 
+>>> fun()
+Traceback (most recent call last):
+  File "<pyshell#39>", line 1, in <module>
+    fun()
+TypeError: fun() missing 2 required positional arguments: 'a' and 'b'
+>>> 
+>>> 
+>>> 
+>>> def fun(a=12,b=9):
+	print(a+b)
+
+	
+>>> fun()
+21
+>>> fun(12,34)
+46
+>>> fun('hello','welcome')
+hellowelcome
+>>> fun([1,2,3],list('abcde'))
+[1, 2, 3, 'a', 'b', 'c', 'd', 'e']
+>>> fun((1,2,3,4),(4,5,6,7))
+(1, 2, 3, 4, 4, 5, 6, 7)
+>>> fun(123)
+132
+>>> fun(b=123,a=89)
+212
+>>> fun(b=123)
+135
+>>> 
+>>> 
+>>> l=[12,345]
+>>> fun(*l)
+357
+>>> d={'a':987,'b':876}
+>>> fun(**d)
+1863
+>>> 
+>>> 
+>>> 
+>>> 
+>>> def fun(a,b):
+	return a+b,a-b,a/b,a**b,a//b,a%b,a*b
+
+>>> 1,4,3,2,5,6,6
+(1, 4, 3, 2, 5, 6, 6)
+>>> 
+>>> fun(5,6)
+(11, -1, 0.8333333333333334, 15625, 0, 5, 30)
+>>> 
+>>> 
+>>> def fun(a,b):
+	return [a+b,a-b,a/b,a**b,a//b,a%b,a*b]
+
+>>> fun(5,6)
+[11, -1, 0.8333333333333334, 15625, 0, 5, 30]
+>>> def fun(a,b):
+	return {a+b,a-b,a/b,a**b,a//b,a%b,a*b}
+
+>>> fun(5,6)
+{0, 5, 15625, 11, 0.8333333333333334, 30, -1}
+>>> 
+>>> 
+>>> 
+>>> def fun(n):
+	if n==1:
+		return 1
+	return n*fun(n-1)
+
+>>> fun(5)
+120
+>>> 
+>>> def fun(n):
+	if n==0:
+		return 0
+	return n%10+fun(n//10)
+
+>>> fun(199)
+19
+>>> fun(123456)
+21
+>>> 
+>>> for i in str(153):
+	print(int(i))
+
+	
+1
+5
+3
+>>> [int(i) for i in str(153)]
+[1, 5, 3]
+>>> sum([int(i) for i in str(153)])
+9
+>>> def fun(n)
+SyntaxError: invalid syntax
+>>> def fun(n):
+	if n<10:
+		if n==1:
+			return 'magic'
+		else:
+			return 'not magic'
+	fun(sum([int(i) for i in str(n))])
+	
+SyntaxError: invalid syntax
+>>> def fun(n):
+	if n<10:
+		if n==1:
+			return 'magic'
+		else:
+			return 'not magic'
+	fun(sum([int(i) for i in str(n)]))
+
+	
+>>> 
+>>> 
+>>> 
+>>> 
+>>> def fun(n):
+	if n<10:
+		if n==1:
+			return 'magic'
+		else:
+			return 'not magic'
+	fun(sum([int(i) for i in str(n)]))
+
+	
+>>> fun(1)
+'magic'
+>>> fun(19)
+>>> def fun(n):
+	if n<10:
+		if n==1:
+			return 'magic'
+		else:
+			return 'not magic'
+	return fun(sum([int(i) for i in str(n)]))
+
+>>> fun(19)
+'magic'
+>>> 

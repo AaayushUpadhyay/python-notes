@@ -1,0 +1,162 @@
+Python 3.6.0 (v3.6.0:41df79263a11, Dec 23 2016, 08:06:12) [MSC v.1900 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+>>> 
+>>> # GUI Programming
+>>> 
+>>> from tkinter import *
+>>> 
+>>> scr=Tk()
+>>> scr1=Tk()
+>>> scr.destroy()
+>>> 
+>>> 
+>>> 
+>>> scr=Tk()
+>>> scr.title("My GUI")
+''
+>>> scr.geometry('400x500')
+''
+>>> scr.minsize(300,300)
+>>> scr.maxsize(400,400)
+>>> scr.config(bg='yellow')
+>>> scr.config(bg='#000000')
+>>> scr.config(bg='cyan')
+>>> 
+>>> l=Label(scr,text='Python')
+>>> l.pack()
+>>> l.config(text='Hello Python',bg='blue',fg='Yellow')
+>>> 
+>>> l.config(font=('cooper black',20,'italic'))
+>>> 
+>>> l.pack(side=BOTTOM)
+>>> l.pack(side=LEFT)
+>>> l.pack(side=RIGHT)
+>>> l.pack(side=TOP)
+>>> l.pack(side=TOP,fill=X)
+>>> l.pack(side=TOP,fill=Y)
+>>> l.pack(side=BOTTOM,fill=X)
+>>> l.pack(side=LEFT,fill=X)
+>>> l.pack(side=LEFT,fill=Y)
+>>> l.pack(side=RIGHT,fill=Y)
+>>> l.pack(side=TOP,fill=X)
+>>> 
+>>> l1=Label(scr,text='Username',font=('times',16,'bold'))
+>>> l1.place(x=100,y=100)
+>>> l1.place(x=60,y=100)
+>>> l2=Label(scr,text='Password',font=('times',16,'bold'))
+>>> l2.place(x=60,y=150)
+>>> l3=Label(scr,bitmap='hourglass')
+>>> l3.place(x=200,y=200)
+>>> l3.config(bitmap='question')
+>>> l3.config(bitmap='warning')
+>>> l3.config(bitmap='info')
+>>> l3.destroy()
+>>> e=Entry(scr)
+>>> e.place(x=150,y=150)
+>>> e.place(x=150,y=100)
+>>> e.place(x=180,y=100)
+>>> e.config(font=('times',16,'italic'))
+>>> e1=Entry(scr,font=('times',16,'italic'))
+>>> e1.place(x=180,y=150)
+>>> e.get()
+'hello'
+>>> e1.get()
+'Python'
+>>> e.delete(0,END)
+>>> e1.delete(0,END)
+>>> 
+>>> 
+>>> e.insert(0,'Hello Python')
+>>> e1.insert(0,'Django')
+>>> e1.config(show='*')
+>>> e.get()
+'Hello Python'
+>>> 
+>>> e1.get()
+'Django'
+>>> e1.get()
+'Cetpa'
+>>> e1.config(show='@')
+>>> e1.get()
+'hellopython'
+>>> e1.config(show='')
+>>> b=Button(scr,text='Login',bg='green',fg='white',font=('times',16,'italic'))
+>>> b.place(x=180,y=220)
+>>> b.place(x=150,y=220)
+>>> 
+>>> e.get()
+'Hello Python'
+>>> 
+>>> 
+>>> 
+>>> def fun():
+	print(e.get(),e1.get())
+
+	
+>>> b.config(command=fun)
+>>> 
+>>> 
+>>> 
+>>> Hello Python hellopython
+Username Password
+
+>>> 
+>>> scr=Tk()
+>>> l=Label(scr,text='Hello')
+>>> l.grid(row=0,column=0)
+>>> l1=Label(scr,text='Python')
+>>> l1.grid(row=0,column=1)
+>>> l1.grid(row=1,column=0)
+>>> l1.grid(row=1,column=1)
+>>> 
+>>> 
+>>> 
+>>> 
+= RESTART: C:/Users/pc/AppData/Local/Programs/Python/Python36/guiCalender.py =
+Traceback (most recent call last):
+  File "C:/Users/pc/AppData/Local/Programs/Python/Python36/guiCalender.py", line 5, in <module>
+    e.grid(row=0,column=0,columspan=4)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python36\lib\tkinter\__init__.py", line 2220, in grid_configure
+    + self._options(cnf, kw))
+_tkinter.TclError: bad option "-columspan": must be -column, -columnspan, -in, -ipadx, -ipady, -padx, -pady, -row, -rowspan, or -sticky
+>>> 
+= RESTART: C:/Users/pc/AppData/Local/Programs/Python/Python36/guiCalender.py =
+Traceback (most recent call last):
+  File "C:/Users/pc/AppData/Local/Programs/Python/Python36/guiCalender.py", line 7, in <module>
+    b1=Button(scr,text='1',font=('cooper black'),width=3).grid(row=1,column=0)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python36\lib\tkinter\__init__.py", line 2363, in __init__
+    Widget.__init__(self, master, 'button', cnf, kw)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python36\lib\tkinter\__init__.py", line 2293, in __init__
+    (widgetName, self._w) + extra + self._options(cnf))
+_tkinter.TclError: expected integer but got "black"
+>>> 
+= RESTART: C:/Users/pc/AppData/Local/Programs/Python/Python36/guiCalender.py =
+>>> 
+= RESTART: C:/Users/pc/AppData/Local/Programs/Python/Python36/guiCalender.py =
+>>> 
+= RESTART: C:/Users/pc/AppData/Local/Programs/Python/Python36/guiCalender.py =
+>>> 
+>>> 
+>>> from tkinter import *
+
+scr=Tk()
+e=Entry(scr,font=('times',16,'italic'))
+e.grid(row=0,column=0,columnspan=4)
+
+b1=Button(scr,text='1',font=('cooper black',16,'italic'),width=3,command=lambda :e.insert(END,'1')).grid(row=1,column=0)
+b2=Button(scr,text='2',font=('cooper black',16,'italic'),width=3).grid(row=1,column=1)
+b3=Button(scr,text='3',font=('cooper black',16,'italic'),width=3).grid(row=1,column=2)
+b4=Button(scr,text='4',font=('cooper black',16,'italic'),width=3).grid(row=2,column=0)
+b5=Button(scr,text='5',font=('cooper black',16,'italic'),width=3).grid(row=2,column=1)
+b6=Button(scr,text='6',font=('cooper black',16,'italic'),width=3).grid(row=2,column=2)
+b7=Button(scr,text='7',font=('cooper black',16,'italic'),width=3).grid(row=3,column=0)
+b8=Button(scr,text='8',font=('cooper black',16,'italic'),width=3).grid(row=3,column=1)
+b9=Button(scr,text='9',font=('cooper black',16,'italic'),width=3).grid(row=3,column=2)
+b10=Button(scr,text='0',font=('cooper black',16,'italic'),width=3).grid(row=4,column=0)
+b11=Button(scr,text='+',font=('cooper black',16,'italic'),width=3).grid(row=4,column=1)
+b12=Button(scr,text='-',font=('cooper black',16,'italic'),width=3).grid(row=4,column=2)
+b13=Button(scr,text='*',font=('cooper black',16,'italic'),width=3).grid(row=5,column=0)
+b14=Button(scr,text='%',font=('cooper black',16,'italic'),width=3).grid(row=5,column=1)
+b15=Button(scr,text='.',font=('cooper black',16,'italic'),width=3).grid(row=5,column=2)
+b16=Button(scr,text='=',font=('cooper black',16,'italic'),width=3).grid(row=5,column=3)
